@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hebe.report.R;
 import com.hebe.report.base.BaseFragment;
 
 /**
@@ -14,9 +15,11 @@ import com.hebe.report.base.BaseFragment;
 
 public class MeFragment extends BaseFragment {
 
+    private View view;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        view = inflater.inflate(R.layout.fragment_me_layout,null);
+        return view;
     }
 }
