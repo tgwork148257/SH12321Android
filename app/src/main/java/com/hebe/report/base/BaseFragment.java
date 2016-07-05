@@ -2,17 +2,13 @@ package com.hebe.report.base;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 /**
  * @author Hebe
  */
-public abstract class BaseFragment extends Fragment implements OnClickListener{
+public abstract class BaseFragment extends Fragment{
 
-	public abstract void initViews(View view);
-	
 	/**
 	 * 显示自定义toast
 	 * @param msg
