@@ -7,7 +7,7 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/report_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1">
 
     </android.support.v4.view.ViewPager>
@@ -15,10 +15,27 @@
     <LinearLayout
         android:id="@+id/vol_layout"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="60dp"
         android:background="@color/bg_gray"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
+        <View
+            android:id="@+id/vol_1"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/vol_select"/>
+        <View
+            android:id="@+id/vol_2"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/vol_unselect"/>
 
     </LinearLayout>
 </LinearLayout>

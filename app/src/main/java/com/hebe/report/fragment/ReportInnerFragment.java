@@ -46,7 +46,6 @@ public class ReportInnerFragment extends BaseFragment{
         x.view().inject(this,view);
         adapter = new ReportItemAdapter();
         report_grid.setAdapter(adapter);
-        Log.e("inner","inner");
         return view;
     }
 
@@ -70,7 +69,7 @@ public class ReportInnerFragment extends BaseFragment{
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             convertView = LayoutInflater.from(getActivity()).inflate(R.layout.report_item,null,false);
-            int height = (report_grid.getHeight() - 2*dip2px(getActivity(),1))/3;
+            int height = (view.getHeight() - 2*dip2px(getActivity(),1))/3;
             int width = (getDisplayMetrics().widthPixels - 2*dip2px(getActivity(),1))/3;
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(width,height);
             convertView.setLayoutParams(params);

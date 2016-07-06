@@ -30,6 +30,13 @@ public class ReportFragment extends BaseFragment {
     private View view;
     @ViewInject(R.id.report_viewpager)
     private ViewPager report_viewpager;
+
+    @ViewInject(R.id.vol_1)
+    private View vol_1;
+
+    @ViewInject(R.id.vol_2)
+    private View vol_2;
+
     private List<ReportItemBean> beanList1 = new ArrayList<ReportItemBean>();
     private List<ReportItemBean> beanList2 = new ArrayList<ReportItemBean>();
     private FPAdapter adapter;
@@ -44,6 +51,28 @@ public class ReportFragment extends BaseFragment {
         initData();
         adapter = new FPAdapter(getChildFragmentManager());
         report_viewpager.setAdapter(adapter);
+        report_viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if (position == 0){
+                    vol_1.setBackgroundDrawable(getResources().getDrawable(R.drawable.vol_select));
+                    vol_2.setBackgroundDrawable(getResources().getDrawable(R.drawable.vol_unselect));
+                }else {
+                    vol_2.setBackgroundDrawable(getResources().getDrawable(R.drawable.vol_select));
+                    vol_1.setBackgroundDrawable(getResources().getDrawable(R.drawable.vol_unselect));
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         return view;
     }
 

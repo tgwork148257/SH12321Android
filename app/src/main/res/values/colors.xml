@@ -7,4 +7,5 @@
     <color name="text_red">#FF5A00</color>
     <color name="bg_gray">#E7E9EC</color>
     <color name="trans">#00000000</color>
+    <color name="vol_bg">#777777</color>
 </resources>

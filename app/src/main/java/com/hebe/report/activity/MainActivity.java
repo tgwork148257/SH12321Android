@@ -86,7 +86,7 @@ public class MainActivity extends BaseActivity {
                 showFragment(newsFragment,R.id.layout_main,"news",true);
                 tab2_img.setImageDrawable(getResources().getDrawable(R.drawable.news_select));
                 tab2_tv.setTextColor(getResources().getColor(R.color.green));
-                navi_title.setText("咨询");
+                navi_title.setText("资讯");
                 break;
             case R.id.tab3:
                 if (meFragment == null){
