@@ -15,6 +15,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.BadMessageActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.SwindlePhoneActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.HarassPhoneActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

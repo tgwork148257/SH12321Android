@@ -1,5 +1,6 @@
 package com.hebe.report.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Layout;
@@ -13,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hebe.report.R;
+import com.hebe.report.activity.BadMessageActivity;
+import com.hebe.report.activity.HarassPhoneActivity;
+import com.hebe.report.activity.SwindlePhoneActivity;
 import com.hebe.report.base.BaseFragment;
 import com.hebe.report.bean.ReportItemBean;
 
@@ -82,8 +86,19 @@ public class ReportInnerFragment extends BaseFragment{
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (itemBeens.get(position).getDrawableId() != 0)
-                    showToast(itemBeens.get(position).getName());
+                    if (itemBeens.get(position).getDrawableId() != 0){
+                        switch (itemBeens.get(position).getDrawableId()){
+                            case R.drawable.message_icon:
+                                startActivity(new Intent(getActivity(),BadMessageActivity.class));
+                                break;
+                            case R.drawable.tele_icon:
+                                startActivity(new Intent(getActivity(),SwindlePhoneActivity.class));
+                                break;
+                            case R.drawable.phone_icon:
+                                startActivity(new Intent(getActivity(),HarassPhoneActivity.class));
+                                break;
+                        }
+                    }
                 }
             });
             return convertView;
