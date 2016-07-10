@@ -2,6 +2,7 @@ package com.hebe.report.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.TokenWatcher;
 import android.support.annotation.Nullable;
 import android.text.Layout;
 import android.util.Log;
@@ -15,9 +16,16 @@ import android.widget.TextView;
 
 import com.hebe.report.R;
 import com.hebe.report.activity.BadAppActivity;
+import com.hebe.report.activity.BadInfoActivity;
+import com.hebe.report.activity.BadKonwActivity;
 import com.hebe.report.activity.BadMessageActivity;
 import com.hebe.report.activity.BadNetActivity;
+import com.hebe.report.activity.BadTowerActivity;
+import com.hebe.report.activity.BadWifiActivity;
 import com.hebe.report.activity.HarassPhoneActivity;
+import com.hebe.report.activity.OtherReportActivity;
+import com.hebe.report.activity.PersonInfoOutActivity;
+import com.hebe.report.activity.PhoneVerifyActivity;
 import com.hebe.report.activity.RubbishEmailActivity;
 import com.hebe.report.activity.SwindlePhoneActivity;
 import com.hebe.report.base.BaseFragment;
@@ -108,6 +116,27 @@ public class ReportInnerFragment extends BaseFragment{
                                 break;
                             case R.drawable.app_cion:
                                 startActivity(new Intent(getActivity(),BadAppActivity.class));
+                                break;
+                            case R.drawable.tower_icon:
+                                startActivity(new Intent(getActivity(),BadTowerActivity.class));
+                                break;
+                            case R.drawable.wifi_icon:
+                                startActivity(new Intent(getActivity(),BadWifiActivity.class));
+                                break;
+                            case R.drawable.sim_icon:
+                                startActivity(new Intent(getActivity(),PhoneVerifyActivity.class));
+                                break;
+                            case R.drawable.account_icon:
+                                startActivity(new Intent(getActivity(),PersonInfoOutActivity.class));
+                                break;
+                            case R.drawable.info_icon:
+                                startActivity(new Intent(getActivity(),BadInfoActivity.class));
+                                break;
+                            case R.drawable.known_icon:
+                                startActivity(new Intent(getActivity(),BadKonwActivity.class));
+                                break;
+                            case R.drawable.other_icon:
+                                startActivity(new Intent(getActivity(),OtherReportActivity.class));
                                 break;
                         }
                     }

@@ -39,6 +39,35 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <activity android:name=".activity.BadTowerActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.BadWifiActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.PhoneVerifyActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.PersonInfoOutActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.BadInfoActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.BadKonwActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.OtherReportActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
     </application>
 
 </manifest>
