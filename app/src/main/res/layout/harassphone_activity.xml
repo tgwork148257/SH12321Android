@@ -78,11 +78,10 @@
                     android:text="响一声就挂"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -104,11 +103,10 @@
                     android:text="自动语音骚扰"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -130,11 +128,10 @@
                     android:text="人工骚扰"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
 
             <View
@@ -166,11 +163,10 @@
                     android:text="色情"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -192,11 +188,10 @@
                     android:text="发票"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -218,11 +213,10 @@
                     android:text="违禁品"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
 
             <View
@@ -245,11 +239,10 @@
                     android:text="高利贷"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
 
             <View
@@ -272,11 +265,10 @@
                     android:text="反动"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
 
             <View
@@ -299,11 +291,10 @@
                     android:text="广告骚扰"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
 
             <View
@@ -336,11 +327,10 @@
                     android:text="3分钟以下"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -362,11 +352,10 @@
                     android:text="3-5分钟"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -388,11 +377,10 @@
                     android:text="5-10分钟"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -414,11 +402,10 @@
                     android:text="10分钟以上"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
 
             <View
@@ -459,6 +446,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:background="@color/white"
+                android:paddingTop="8dp"
                 android:gravity="start"
                 android:paddingLeft="16dp"
                 android:textSize="15sp"

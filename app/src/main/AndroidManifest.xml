@@ -27,6 +27,18 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <activity android:name=".activity.BadNetActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.RubbishEmailActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.BadAppActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

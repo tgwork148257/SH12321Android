@@ -14,8 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hebe.report.R;
+import com.hebe.report.activity.BadAppActivity;
 import com.hebe.report.activity.BadMessageActivity;
+import com.hebe.report.activity.BadNetActivity;
 import com.hebe.report.activity.HarassPhoneActivity;
+import com.hebe.report.activity.RubbishEmailActivity;
 import com.hebe.report.activity.SwindlePhoneActivity;
 import com.hebe.report.base.BaseFragment;
 import com.hebe.report.bean.ReportItemBean;
@@ -96,6 +99,15 @@ public class ReportInnerFragment extends BaseFragment{
                                 break;
                             case R.drawable.phone_icon:
                                 startActivity(new Intent(getActivity(),HarassPhoneActivity.class));
+                                break;
+                            case R.drawable.internet_icon:
+                                startActivity(new Intent(getActivity(),BadNetActivity.class));
+                                break;
+                            case R.drawable.email_icon:
+                                startActivity(new Intent(getActivity(),RubbishEmailActivity.class));
+                                break;
+                            case R.drawable.app_cion:
+                                startActivity(new Intent(getActivity(),BadAppActivity.class));
                                 break;
                         }
                     }

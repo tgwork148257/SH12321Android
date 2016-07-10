@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/bg_gray"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/navibar_layout"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textColor="@color/text_black"
+        android:gravity="center_vertical"
+        android:textSize="15sp"
+        android:paddingLeft="16dp"
+        android:text="将垃圾邮件或骚扰邮件作为附件\n转发至021@12321.cn即可完成举报"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:src="@drawable/email_report"/>
+
+
+</LinearLayout>

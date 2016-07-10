@@ -78,11 +78,10 @@
                     android:text="中奖诈骗"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -104,11 +103,10 @@
                     android:text="金融类诈骗"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -130,11 +128,10 @@
                     android:text="冒充公检法"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -156,11 +153,10 @@
                     android:text="冒充领导"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -182,11 +178,10 @@
                     android:text="网购类诈骗"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -208,11 +203,10 @@
                     android:text="其他"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -243,11 +237,10 @@
                     android:text="3分钟以下"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -269,11 +262,10 @@
                     android:text="3-5分钟"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -295,11 +287,10 @@
                     android:text="5-10分钟"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -321,11 +312,10 @@
                     android:text="10分钟以上"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -347,11 +337,10 @@
                     android:text="网购类诈骗"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -373,11 +362,10 @@
                     android:text="其他"
                     android:textSize="15sp" />
 
-                <CheckBox
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/check_button_selector"
-                    android:button="@color/trans" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/but_uncheck"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -419,6 +407,7 @@
                 android:background="@color/white"
                 android:gravity="start"
                 android:paddingLeft="16dp"
+                android:paddingTop="8dp"
                 android:textSize="15sp"
                 android:hint="请简单描述诈骗电话内容"/>
             <Button
