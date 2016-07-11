@@ -10,5 +10,4 @@ gradlew
 /captures
 .idea/
 gradle/
-build.gradle
 gradlew.bat
