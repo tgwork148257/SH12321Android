@@ -35,6 +35,6 @@ public class BadWifiActivity extends BaseActivity {
                 finish();
             }
         });
-        navi_title.setText("不良wifi");
+        navi_title.setText("不良WIFI");
     }
 }

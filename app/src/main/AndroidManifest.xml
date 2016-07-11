@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,6 +64,18 @@
 
         </activity>
         <activity android:name=".activity.OtherReportActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.MainActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.CommonListActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.MyReportListActivity"
             android:screenOrientation="portrait">
 
         </activity>
