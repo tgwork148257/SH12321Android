@@ -79,6 +79,42 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <activity android:name=".activity.BadMessageResultActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.SwindlePhoneResultActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.HarassPhoneResultActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.BadNetResultActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.BadAppResultActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.BadTowerResultActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.BadWifiResultActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.PhoneVerifyResultActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.MoreReportResultActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
 
     </application>
 

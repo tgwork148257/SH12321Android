@@ -1,9 +1,11 @@
 package com.hebe.report.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -61,6 +63,43 @@ public class MyReportListActivity extends BaseActivity {
         reports.add(new MyReport(1,"知识产权侵权","2016-6-6"));
         reports.add(new MyReport(1,"其他","2016-6-6"));
         report_list.setAdapter(new ReportListAdapter());
+        report_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (reports.get(position).getReporttype()){
+                    case "不良短信":
+                        startActivity(new Intent(MyReportListActivity.this,BadMessageResultActivity.class));
+                        break;
+                    case "诈骗电话":
+                        startActivity(new Intent(MyReportListActivity.this,SwindlePhoneResultActivity.class));
+                        break;
+                    case "骚扰电话":
+                        startActivity(new Intent(MyReportListActivity.this,HarassPhoneResultActivity.class));
+                        break;
+                    case "不良网站":
+                        startActivity(new Intent(MyReportListActivity.this,BadNetResultActivity.class));
+                        break;
+                    case "不良APP":
+                        startActivity(new Intent(MyReportListActivity.this,BadAppResultActivity.class));
+                        break;
+                    case "伪基站":
+                        startActivity(new Intent(MyReportListActivity.this,BadTowerResultActivity.class));
+                        break;
+                    case "不良WIFI":
+                        startActivity(new Intent(MyReportListActivity.this,BadWifiResultActivity.class));
+                        break;
+                    case "手机实名制":
+                        startActivity(new Intent(MyReportListActivity.this,PhoneVerifyResultActivity.class));
+                        break;
+                    case "个人信息泄露":
+                    case "不良舆情":
+                    case "知识产权侵权":
+                    case "其他":
+                        startActivity(new Intent(MyReportListActivity.this,MoreReportResultActivity.class));
+                        break;
+                }
+            }
+        });
     }
 
     private class ReportListAdapter extends BaseAdapter {
