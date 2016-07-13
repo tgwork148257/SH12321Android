@@ -143,4 +143,8 @@ public abstract class BaseActivity extends FragmentActivity{
 	public void startNewActivity(Intent intent){
 		startActivity(intent);
 	}
+
+	public boolean isPhoneNumber(String phone){
+		return true;
+	}
 }
