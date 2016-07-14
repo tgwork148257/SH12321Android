@@ -2,14 +2,18 @@ package com.hebe.report.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hebe.report.R;
 import com.hebe.report.base.BaseActivity;
 
+import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
 
 /**
  * 不良APP
@@ -18,10 +22,19 @@ import org.xutils.x;
 
 public class BadAppActivity extends BaseActivity {
 
+    @ViewInject(R.id.et_badapp_name)
+    EditText etBadappName;
+    @ViewInject(R.id.et_badapp_from)
+    EditText etBadappFrom;
+    @ViewInject(R.id.et_badapp_content)
+    EditText etBadappContent;
+    @ViewInject(R.id.badapp_commit)
+    Button badappCommit;
     @ViewInject(R.id.navi_title)
     private TextView navi_title;
     @ViewInject(R.id.navi_back)
     private ImageView navi_back;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,5 +49,10 @@ public class BadAppActivity extends BaseActivity {
             }
         });
         navi_title.setText("不良APP");
+    }
+
+    @Event({R.id.badapp_commit})
+    private void onClick(View view) {
+        showToast("提交");
     }
 }

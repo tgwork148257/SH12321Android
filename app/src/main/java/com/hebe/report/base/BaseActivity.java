@@ -13,6 +13,10 @@ import android.util.DisplayMetrics;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @author Hebe
  */
@@ -145,6 +149,8 @@ public abstract class BaseActivity extends FragmentActivity{
 	}
 
 	public boolean isPhoneNumber(String phone){
-		return true;
+		Pattern p = Pattern.compile("^(1\\d{10})$");
+		Matcher m = p.matcher(phone);
+		return m.matches();
 	}
 }

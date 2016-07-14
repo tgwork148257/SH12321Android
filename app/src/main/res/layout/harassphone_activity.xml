@@ -29,9 +29,13 @@
                 android:textSize="15sp" />
 
             <EditText
+                android:id="@+id/et_phone_1"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
+                android:maxLines="1"
+                android:maxLength="11"
+                android:inputType="number"
                 android:hint="请填写骚扰电话号码"
                 android:paddingLeft="16dp"
                 android:textSize="15sp" />
@@ -46,9 +50,13 @@
                 android:textSize="15sp" />
 
             <EditText
+                android:id="@+id/et_phone_2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
+                android:maxLines="1"
+                android:maxLength="11"
+                android:inputType="number"
                 android:hint="请填写被骚扰电话号码"
                 android:paddingLeft="16dp"
                 android:textSize="15sp" />
@@ -63,6 +71,7 @@
                 android:textSize="15sp" />
 
             <LinearLayout
+                android:id="@+id/lay1_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -79,6 +88,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay1_layout1_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -88,6 +98,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay1_layout2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -104,6 +115,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay1_layout2_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -113,6 +125,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay1_layout3"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -129,6 +142,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay1_layout3_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -148,6 +162,7 @@
                 android:textSize="15sp" />
 
             <LinearLayout
+                android:id="@+id/lay2_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -164,6 +179,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay2_layout1_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -173,6 +189,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay2_layout2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -189,6 +206,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay2_layout2_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -198,6 +216,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay2_layout3"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -214,6 +233,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay2_layout3_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -224,6 +244,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay2_layout4"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -240,6 +261,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay2_layout4_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -250,6 +272,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay2_layout5"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -266,6 +289,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay2_layout5_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -276,6 +300,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay2_layout6"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -292,6 +317,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay2_layout6_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -312,6 +338,7 @@
                 android:textSize="15sp" />
 
             <LinearLayout
+                android:id="@+id/lay3_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -328,6 +355,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay3_layout1_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -337,6 +365,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay3_layout2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -353,6 +382,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay3_layout2_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -362,6 +392,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay3_layout3"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -378,6 +409,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay3_layout3_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -387,6 +419,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay3_layout4"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -403,6 +436,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay3_layout4_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -414,6 +448,7 @@
                 android:layout_marginBottom="30dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/select_time"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -443,6 +478,7 @@
                 android:paddingLeft="16dp"
                 android:text="骚扰内容"/>
             <EditText
+                android:id="@+id/harass_content"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:background="@color/white"
@@ -452,6 +488,7 @@
                 android:textSize="15sp"
                 android:hint="请简单描述骚扰电话内容"/>
             <Button
+                android:id="@+id/harass_commit"
                 android:layout_width="220dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_horizontal"

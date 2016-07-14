@@ -43,6 +43,9 @@
                 android:background="@color/trans"
                 android:textColorHint="@color/text_gray"
                 android:textColor="@color/text_black"
+                android:maxLines="1"
+                android:maxLength="11"
+                android:inputType="number"
                 android:layout_marginLeft="10dp"
                 android:hint="手机号"/>
         </LinearLayout>

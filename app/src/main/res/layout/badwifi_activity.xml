@@ -29,6 +29,7 @@
                 android:textSize="15sp" />
 
             <EditText
+                android:id="@+id/et_badwifi_name"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -46,6 +47,7 @@
                 android:textSize="15sp" />
 
             <LinearLayout
+                android:id="@+id/badwifi_address"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -71,6 +73,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <EditText
+                android:id="@+id/et_badwifi_detail"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:background="@color/white"
@@ -84,6 +87,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/select_time"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -110,6 +114,7 @@
                 android:background="@color/text_gray"/>
 
             <Button
+                android:id="@+id/badwifi_commit"
                 android:layout_width="220dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_horizontal"

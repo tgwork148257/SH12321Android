@@ -29,6 +29,7 @@
                 android:textSize="15sp" />
 
             <LinearLayout
+                android:id="@+id/lay1_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -42,10 +43,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="实体店"
-                    android:textSize="15sp"
-                    android:id="@+id/textView2" />
+                    android:textSize="15sp"/>
 
                 <ImageView
+                    android:id="@+id/lay1_layout1_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -55,6 +56,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay1_layout2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -71,6 +73,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay1_layout2_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -82,230 +85,505 @@
                 android:background="@color/text_gray"/>
 
             <LinearLayout
+                android:id="@+id/shitidian_layout"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/shitidian_weigui"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="违规原因"
+                        android:textSize="15sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="违规原因"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="实体店名称"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
-
-                <ImageView
+                <EditText
+                    android:id="@+id/et_shitidian_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:hint="请填写实体店名称"
+                    android:paddingLeft="16dp"
+                    android:textSize="15sp" />
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/arrow_right"/>
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="手机号码"
+                    android:textColor="@color/text_black"
+                    android:textSize="15sp" />
+                <EditText
+                    android:id="@+id/et_shitidian_hao"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:hint="请填写购买的手机号码"
+                    android:maxLines="1"
+                    android:maxLength="11"
+                    android:inputType="number"
+                    android:paddingLeft="16dp"
+                    android:textSize="15sp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="35dp"
+                    android:background="@color/text_gray"/>
+                <LinearLayout
+                    android:id="@+id/shitidian_selecttime"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="购卡时间"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <LinearLayout
+                    android:id="@+id/shitidian_yunyingshang"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="所属运营商"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="实体店地址"
+                    android:textColor="@color/text_black"
+                    android:textSize="15sp" />
+                <LinearLayout
+                    android:id="@+id/shitidian_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="所在区县"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <EditText
+                    android:id="@+id/et_shitidian_dizhixiangxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/white"
+                    android:gravity="start"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:textSize="15sp"
+                    android:hint="详细地址"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <LinearLayout
+                    android:id="@+id/shitidian_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="实体店照片"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <LinearLayout
+                    android:id="@+id/shitidian_chikaphoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="本人持卡照片"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="举报描述"
+                    android:textColor="@color/text_black"
+                    android:textSize="15sp" />
+                <EditText
+                    android:id="@+id/et_shitidian_miaoshu"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/white"
+                    android:gravity="start"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:textSize="15sp"
+                    android:hint=""/>
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_gray"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:text="实体店名称"
-                android:textColor="@color/text_black"
-                android:textSize="15sp" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:hint="请填写实体店名称"
-                android:paddingLeft="16dp"
-                android:textSize="15sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:text="手机号码"
-                android:textColor="@color/text_black"
-                android:textSize="15sp" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:hint="请填写购买的手机号码"
-                android:paddingLeft="16dp"
-                android:textSize="15sp" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="35dp"
-                android:background="@color/text_gray"/>
+
+
+<!--   网店布局-->
+
+
+
             <LinearLayout
+                android:id="@+id/wangdian_layout"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/wangdian_weigui"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="违规原因"
+                        android:textSize="15sp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="购卡时间"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="网店名称"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/arrow_right"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_gray"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
-
+                <EditText
+                    android:id="@+id/et_wagndian_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:hint="请填写网店名称"
+                    android:paddingLeft="16dp"
+                    android:textSize="15sp" />
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="所属运营商"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="手机号码"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
+                <EditText
+                    android:id="@+id/et_wangdian_hao"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:hint="请填写购买的手机号码"
+                    android:maxLines="1"
+                    android:maxLength="11"
+                    android:inputType="number"
+                    android:paddingLeft="16dp"
+                    android:textSize="15sp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="35dp"
+                    android:background="@color/text_gray"/>
+                <LinearLayout
+                    android:id="@+id/wangdian_selecttime"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/arrow_right"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_gray"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:text="实体店地址"
-                android:textColor="@color/text_black"
-                android:textSize="15sp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="购卡时间"
+                        android:textSize="15sp" />
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <LinearLayout
+                    android:id="@+id/wangdian_yunyingshang"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="所属运营商"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="所在区县"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="购卡网店网址"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/arrow_right"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_gray"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@color/white"
-                android:gravity="start"
-                android:paddingLeft="16dp"
-                android:paddingTop="8dp"
-                android:textSize="15sp"
-                android:hint="详细地址"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_gray"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
-
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <EditText
+                    android:id="@+id/et_wangdian_wangzhi"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/white"
+                    android:gravity="start"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:textSize="15sp"
+                    android:hint="详细地址"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="实体店照片"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="销售页面地址"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/arrow_right"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_gray"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <EditText
+                    android:id="@+id/et_wangdian_xiaoshoudizhi"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/white"
+                    android:gravity="start"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:textSize="15sp"
+                    android:hint="详细地址"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <LinearLayout
+                    android:id="@+id/wangdian_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="订单确认截图"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
+                <LinearLayout
+                    android:id="@+id/wangdian_chikaphoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="本人持卡照片"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/arrow_right"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/text_gray"/>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="本人持卡照片"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="举报描述"
+                    android:textColor="@color/text_black"
                     android:textSize="15sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/arrow_right"/>
+                <EditText
+                    android:id="@+id/et_wangdian_miaoshu"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/white"
+                    android:gravity="start"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:textSize="15sp"
+                    android:hint=""/>
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/text_gray"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:text="举报描述"
-                android:textColor="@color/text_black"
-                android:textSize="15sp" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@color/white"
-                android:gravity="start"
-                android:paddingLeft="16dp"
-                android:paddingTop="8dp"
-                android:textSize="15sp"
-                android:hint=""/>
 
             <Button
+                android:id="@+id/sim_commit"
                 android:layout_width="220dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_horizontal"

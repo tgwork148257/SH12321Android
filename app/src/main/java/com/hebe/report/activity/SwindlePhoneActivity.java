@@ -1,14 +1,17 @@
 package com.hebe.report.activity;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hebe.report.R;
 import com.hebe.report.base.BaseActivity;
 
+import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -19,10 +22,71 @@ import org.xutils.x;
 
 public class SwindlePhoneActivity extends BaseActivity {
 
+    @ViewInject(R.id.et_phone_1)
+    EditText etPhone1;
+    @ViewInject(R.id.et_phone_2)
+    EditText etPhone2;
+    @ViewInject(R.id.lay1_layout1_img)
+    ImageView lay1Layout1Img;
+    @ViewInject(R.id.lay1_layout1)
+    LinearLayout lay1Layout1;
+    @ViewInject(R.id.lay1_layout2_img)
+    ImageView lay1Layout2Img;
+    @ViewInject(R.id.lay1_layout2)
+    LinearLayout lay1Layout2;
+    @ViewInject(R.id.lay1_layout3_img)
+    ImageView lay1Layout3Img;
+    @ViewInject(R.id.lay1_layout3)
+    LinearLayout lay1Layout3;
+    @ViewInject(R.id.lay1_layout4_img)
+    ImageView lay1Layout4Img;
+    @ViewInject(R.id.lay1_layout4)
+    LinearLayout lay1Layout4;
+    @ViewInject(R.id.lay1_layout5_img)
+    ImageView lay1Layout5Img;
+    @ViewInject(R.id.lay1_layout5)
+    LinearLayout lay1Layout5;
+    @ViewInject(R.id.lay1_layout6_img)
+    ImageView lay1Layout6Img;
+    @ViewInject(R.id.lay1_layout6)
+    LinearLayout lay1Layout6;
+    @ViewInject(R.id.lay2_layout1_img)
+    ImageView lay2Layout1Img;
+    @ViewInject(R.id.lay2_layout1)
+    LinearLayout lay2Layout1;
+    @ViewInject(R.id.lay2_layout2_img)
+    ImageView lay2Layout2Img;
+    @ViewInject(R.id.lay2_layout2)
+    LinearLayout lay2Layout2;
+    @ViewInject(R.id.lay2_layout3_img)
+    ImageView lay2Layout3Img;
+    @ViewInject(R.id.lay2_layout3)
+    LinearLayout lay2Layout3;
+    @ViewInject(R.id.lay2_layout4_img)
+    ImageView lay2Layout4Img;
+    @ViewInject(R.id.lay2_layout4)
+    LinearLayout lay2Layout4;
+    @ViewInject(R.id.lay2_layout5_img)
+    ImageView lay2Layout5Img;
+    @ViewInject(R.id.lay2_layout5)
+    LinearLayout lay2Layout5;
+    @ViewInject(R.id.lay2_layout6_img)
+    ImageView lay2Layout6Img;
+    @ViewInject(R.id.lay2_layout6)
+    LinearLayout lay2Layout6;
+    @ViewInject(R.id.select_time)
+    LinearLayout selectTime;
+    @ViewInject(R.id.swind_content)
+    EditText swindContent;
+    @ViewInject(R.id.swind_commit)
+    Button swindCommit;
     @ViewInject(R.id.navi_title)
     private TextView navi_title;
     @ViewInject(R.id.navi_back)
     private ImageView navi_back;
+
+    private int lay1check = -1;
+    private int lay2check = -1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,5 +101,94 @@ public class SwindlePhoneActivity extends BaseActivity {
             }
         });
         navi_title.setText("诈骗电话");
+    }
+
+    public void resetlay1() {
+        lay1Layout1Img.setImageResource(R.drawable.but_uncheck);
+        lay1Layout2Img.setImageResource(R.drawable.but_uncheck);
+        lay1Layout3Img.setImageResource(R.drawable.but_uncheck);
+        lay1Layout4Img.setImageResource(R.drawable.but_uncheck);
+        lay1Layout5Img.setImageResource(R.drawable.but_uncheck);
+        lay1Layout6Img.setImageResource(R.drawable.but_uncheck);
+    }
+
+    public void resetLay2() {
+        lay2Layout1Img.setImageResource(R.drawable.but_uncheck);
+        lay2Layout2Img.setImageResource(R.drawable.but_uncheck);
+        lay2Layout3Img.setImageResource(R.drawable.but_uncheck);
+        lay2Layout4Img.setImageResource(R.drawable.but_uncheck);
+        lay2Layout5Img.setImageResource(R.drawable.but_uncheck);
+        lay2Layout6Img.setImageResource(R.drawable.but_uncheck);
+    }
+
+    @Event({R.id.lay1_layout1, R.id.lay1_layout2, R.id.lay1_layout3, R.id.lay1_layout4, R.id.lay1_layout5, R.id.lay1_layout6, R.id.lay2_layout1, R.id.lay2_layout2, R.id.lay2_layout3, R.id.lay2_layout4, R.id.lay2_layout5, R.id.lay2_layout6, R.id.select_time, R.id.swind_commit})
+    private void click(View view) {
+        switch (view.getId()) {
+            case R.id.lay1_layout1:
+                resetlay1();
+                lay1Layout1Img.setImageResource(R.drawable.but_checked);
+                lay1check = 1;
+                break;
+            case R.id.lay1_layout2:
+                resetlay1();
+                lay1Layout2Img.setImageResource(R.drawable.but_checked);
+                lay1check = 2;
+                break;
+            case R.id.lay1_layout3:
+                resetlay1();
+                lay1Layout3Img.setImageResource(R.drawable.but_checked);
+                lay1check = 3;
+                break;
+            case R.id.lay1_layout4:
+                resetlay1();
+                lay1Layout4Img.setImageResource(R.drawable.but_checked);
+                lay1check = 4;
+                break;
+            case R.id.lay1_layout5:
+                resetlay1();
+                lay1Layout5Img.setImageResource(R.drawable.but_checked);
+                lay1check = 5;
+                break;
+            case R.id.lay1_layout6:
+                resetlay1();
+                lay1Layout6Img.setImageResource(R.drawable.but_checked);
+                lay1check = 6;
+                break;
+            case R.id.lay2_layout1:
+                resetLay2();
+                lay2Layout1Img.setImageResource(R.drawable.but_checked);
+                lay2check = 1;
+                break;
+            case R.id.lay2_layout2:
+                resetLay2();
+                lay2Layout2Img.setImageResource(R.drawable.but_checked);
+                lay2check = 2;
+                break;
+            case R.id.lay2_layout3:
+                resetLay2();
+                lay2Layout3Img.setImageResource(R.drawable.but_checked);
+                lay2check = 3;
+                break;
+            case R.id.lay2_layout4:
+                resetLay2();
+                lay2Layout4Img.setImageResource(R.drawable.but_checked);
+                lay2check = 4;
+                break;
+            case R.id.lay2_layout5:
+                resetLay2();
+                lay2Layout5Img.setImageResource(R.drawable.but_checked);
+                lay2check = 5;
+                break;
+            case R.id.lay2_layout6:
+                resetLay2();
+                lay2Layout6Img.setImageResource(R.drawable.but_checked);
+                lay2check = 6;
+                break;
+            case R.id.select_time:
+                break;
+            case R.id.swind_commit:
+                showToast(lay1check + "   " + lay2check);
+                break;
+        }
     }
 }

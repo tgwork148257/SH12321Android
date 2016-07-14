@@ -26,10 +26,10 @@
                 android:paddingLeft="16dp"
                 android:text="不良网站"
                 android:textColor="@color/text_black"
-                android:textSize="15sp"
-                android:id="@+id/textView" />
+                android:textSize="15sp"/>
 
             <EditText
+                android:id="@+id/et_badnet"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -47,6 +47,7 @@
                 android:textSize="15sp" />
 
             <LinearLayout
+                android:id="@+id/lay1_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -63,6 +64,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay1_layout1_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -72,6 +74,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay1_layout2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -88,6 +91,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay1_layout2_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -97,6 +101,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay1_layout3"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -113,6 +118,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay1_layout3_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -122,6 +128,7 @@
                 android:layout_height="1dp"
                 android:background="@color/text_gray"/>
             <LinearLayout
+                android:id="@+id/lay1_layout4"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -138,6 +145,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/lay1_layout4_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -156,6 +164,7 @@
                 android:paddingLeft="16dp"
                 android:text="不良网站内容"/>
             <EditText
+                android:id="@+id/badnet_content"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:background="@color/white"
@@ -165,6 +174,7 @@
                 android:textSize="15sp"
                 android:hint="请简单描述不良网站内容"/>
             <Button
+                android:id="@+id/badnet_commit"
                 android:layout_width="220dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_horizontal"
