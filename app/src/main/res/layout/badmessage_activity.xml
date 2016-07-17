@@ -15,6 +15,7 @@
         android:textSize="15sp"
         android:paddingLeft="16dp"
         android:text="发送方号码"/>
+
     <EditText
         android:id="@+id/message_phone_send"
         android:layout_width="match_parent"

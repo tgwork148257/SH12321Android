@@ -15,8 +15,6 @@ import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
-import butterknife.OnClick;
-
 /**
  * 不良网站
  * Created by Hebe on 7-7-007.

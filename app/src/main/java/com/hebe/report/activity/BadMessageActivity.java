@@ -24,6 +24,7 @@ public class BadMessageActivity extends BaseActivity {
 
     @ViewInject(R.id.navi_title)
     private TextView navi_title;
+
     @ViewInject(R.id.navi_back)
     private ImageView navi_back;
 
@@ -54,8 +55,12 @@ public class BadMessageActivity extends BaseActivity {
         message_submmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isPhoneNumber(message_phone_receiver.getText().toString().trim())&&isPhoneNumber(message_phone_receiver.getText().toString().trim())&&!TextUtils.isEmpty(message_phone_content.getText().toString().trim())){
-                    showToast("提交");
+                String phone1 = message_phone_receiver.getText().toString().trim();
+                String phone2 = message_phone_receiver.getText().toString().trim();
+                String content = message_phone_content.getText().toString().trim();
+                if (isPhoneNumber(phone1)&&isPhoneNumber(phone2)&&!TextUtils.isEmpty(content)){
+                    showToast(phone1+" "+phone2+" "+content);
+
                 }else {
                     showToast("输入信息有误");
                 }

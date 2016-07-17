@@ -1,5 +1,6 @@
 package com.hebe.report.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,8 +9,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hebe.report.Constant.Constant;
 import com.hebe.report.R;
 import com.hebe.report.base.BaseActivity;
+import com.hebe.report.utils.DateTimeDialog;
 
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -44,6 +47,10 @@ public class BadTowerActivity extends BaseActivity {
     private TextView navi_title;
     @ViewInject(R.id.navi_back)
     private ImageView navi_back;
+    @ViewInject(R.id.address_tv)
+    private TextView address_tv;
+    @ViewInject(R.id.select_time_tv)
+    private TextView select_time_tv;
 
     private int lay1check = -1;
     @Override
@@ -76,12 +83,26 @@ public class BadTowerActivity extends BaseActivity {
                 lay1check = 2;
                 break;
             case R.id.adress_layout:
+                Intent intent = new Intent(BadTowerActivity.this,CommonListActivity.class);
+                intent.putExtra("title","选择区县");
+                intent.putStringArrayListExtra("items", new Constant().getQuxian());
+                startActivityForResult(intent,1);
                 break;
             case R.id.select_time:
+                DateTimeDialog dialog = new DateTimeDialog(BadTowerActivity.this,null);
+                dialog.dateTimePicKDialog(select_time_tv);
                 break;
             case R.id.tower_commit:
                 showToast(lay1check+"");
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 101){
+            address_tv.setText(data.getStringExtra("address"));
         }
     }
 }

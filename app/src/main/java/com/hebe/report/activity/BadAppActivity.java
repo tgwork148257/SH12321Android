@@ -1,6 +1,7 @@
 package com.hebe.report.activity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,6 +54,14 @@ public class BadAppActivity extends BaseActivity {
 
     @Event({R.id.badapp_commit})
     private void onClick(View view) {
-        showToast("提交");
+        String name = etBadappName.getText().toString().trim();
+        String from = etBadappFrom.getText().toString().trim();
+        String content = etBadappContent.getText().toString().trim();
+        if(TextUtils.isEmpty(name) || TextUtils.isEmpty(from) || TextUtils.isEmpty(content)){
+            showToast("请填写完整信息");
+            return;
+        }
+        showToast(name+"  "+from + "  "+content);
+
     }
 }

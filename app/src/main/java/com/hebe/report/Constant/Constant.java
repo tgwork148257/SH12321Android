@@ -9,10 +9,26 @@ import java.util.List;
 
 public class Constant {
 
-    public static ArrayList<String> quxian = new ArrayList<String>();
-    public static ArrayList<String> weiguishiti = new ArrayList<String>();
-    public static ArrayList<String> weiguiwangdian = new ArrayList<String>();
-    public static ArrayList<String> yunyingshang = new ArrayList<String>();
+    public ArrayList<String> quxian = new ArrayList<String>();
+    public ArrayList<String> weiguishiti = new ArrayList<String>();
+    public ArrayList<String> weiguiwangdian = new ArrayList<String>();
+    public ArrayList<String> yunyingshang = new ArrayList<String>();
+
+    public ArrayList<String> getQuxian() {
+        return quxian;
+    }
+
+    public ArrayList<String> getWeiguishiti() {
+        return weiguishiti;
+    }
+
+    public ArrayList<String> getWeiguiwangdian() {
+        return weiguiwangdian;
+    }
+
+    public ArrayList<String> getYunyingshang() {
+        return yunyingshang;
+    }
 
     public Constant(){
         quxian.add("黄浦区");
