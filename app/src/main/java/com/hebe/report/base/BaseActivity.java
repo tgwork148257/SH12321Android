@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
@@ -149,6 +150,8 @@ public abstract class BaseActivity extends FragmentActivity{
 	}
 
 	public boolean isPhoneNumber(String phone){
+		if (TextUtils.isEmpty(phone))
+			return false;
 		Pattern p = Pattern.compile("^(1\\d{10})$");
 		Matcher m = p.matcher(phone);
 		return m.matches();

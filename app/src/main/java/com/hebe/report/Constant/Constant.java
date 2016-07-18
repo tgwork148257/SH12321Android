@@ -1,7 +1,7 @@
 package com.hebe.report.Constant;
 
+
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Hebe on 7-11-011.
@@ -13,6 +13,10 @@ public class Constant {
     public ArrayList<String> weiguishiti = new ArrayList<String>();
     public ArrayList<String> weiguiwangdian = new ArrayList<String>();
     public ArrayList<String> yunyingshang = new ArrayList<String>();
+
+    public static String SP_NAME = "info";
+
+    public static String base_url = "http://www.66liuliang.com/12321/index.php/";
 
     public ArrayList<String> getQuxian() {
         return quxian;
