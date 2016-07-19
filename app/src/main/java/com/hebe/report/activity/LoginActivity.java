@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,18 +17,13 @@ import com.hebe.report.R;
 import com.hebe.report.base.BaseActivity;
 import com.hebe.report.bean.DeviceTokenBean;
 import com.hebe.report.bean.VerifyCodeBean;
-import com.hebe.report.utils.AsyncHttpUtil;
 import com.hebe.report.utils.ToolsSp;
 import com.hebe.report.utils.Utils;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.xutils.common.Callback;
-import org.xutils.http.HttpMethod;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
-
-import cz.msebera.android.httpclient.Header;
 
 /**
  * 登录界面
@@ -46,6 +42,7 @@ public class LoginActivity extends BaseActivity {
     private TextView get_code;
 
     private CountDownTimer timer;
+    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,74 +86,55 @@ public class LoginActivity extends BaseActivity {
 
     private void getDeviceToken(){
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-
-        com.loopj.android.http.RequestParams params1 = new com.loopj.android.http.RequestParams();
-        params1.put("app_version", "1.0");
-        params1.put("server_version", "android");
-        params1.put("appid", tm.getDeviceId());
-        AsyncHttpUtil.post(Constant.base_url + "App/getToken", params1, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                showToast(new String(responseBody));
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
-            }
-        });
-
-
-
-
-//        RequestParams params = new RequestParams(Constant.base_url+"App/getToken");
-//        params.setMethod(HttpMethod.POST);
-//        params.addBodyParameter("app_version", "1.0");
-//        params.addBodyParameter("server_version", "android");
-//        params.addBodyParameter("appid", tm.getDeviceId());
-//        x.http().post(params, new Callback.CommonCallback<String>() {
-//            @Override
-//            public void onSuccess(String result) {
-//                DeviceTokenBean bean = Utils.jsonParase(result,DeviceTokenBean.class);
-//                if (bean != null && bean.getCode() == 200){
-//                    showToast(bean.getData().getToken()+"");
-//                    ToolsSp.saveOrUpdate(LoginActivity.this,Constant.SP_NAME,"dtoken",bean.getData().getToken());
-//                    getVeriToken(login_phone.getText().toString().trim());
-//                }else {
-//                    closeProgressDialog();
-//                    showToast(bean.getCode()+"");
-//                }
-//            }
-//
-//            @Override
-//            public void onError(Throwable ex, boolean isOnCallback) {
-//                showToast("onError");
-//                closeProgressDialog();
-//            }
-//
-//            @Override
-//            public void onCancelled(CancelledException cex) {
-//
-//            }
-//
-//            @Override
-//            public void onFinished() {
-//
-//            }
-//        });
-    }
-
-    public void getVeriToken(String mobile){
         RequestParams params = new RequestParams(Constant.base_url+"App/getToken");
-        params.addBodyParameter("mobile", mobile);
-        params.addBodyParameter("token", ToolsSp.get(this,Constant.SP_NAME,"dtoken"));
+        params.addBodyParameter("app_version", "1.0");
+        params.addBodyParameter("server_version", "android");
+        params.addBodyParameter("appid", tm.getDeviceId());
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                DeviceTokenBean bean = Utils.jsonParase(result,DeviceTokenBean.class);
+                if (bean != null && !TextUtils.isEmpty(bean.getToken())){
+                    showToast(bean.getToken()+"");
+                    token = bean.getToken();
+                    ToolsSp.saveOrUpdate(LoginActivity.this,Constant.SP_NAME,"dtoken",bean.getToken());
+                    getVeriToken(login_phone.getText().toString().trim());
+                }else {
+                    closeProgressDialog();
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                closeProgressDialog();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+    public void getVeriToken(String mobile){
+        RequestParams params = new RequestParams(Constant.base_url+"App/getCode");
+        params.addBodyParameter("mobile", mobile);
+        params.addBodyParameter("token", token);
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                showToast(result);
                 closeProgressDialog();
                 VerifyCodeBean bean = Utils.jsonParase(result,VerifyCodeBean.class);
-                if (bean != null && bean.getCode() == 200){
-                    showToast(bean.getData().getCode()+"");
+                if (bean != null && bean.getCode() == 4001){
+                    getDeviceToken();
+                }else if (bean != null && bean.getCode() == 200){
+                    showToast(bean.getCode()+"");
                 }else {
                     showToast(bean.getCode()+"");
                 }
