@@ -10,7 +10,11 @@ import android.widget.TextView;
 
 import com.hebe.report.R;
 import com.hebe.report.base.BaseActivity;
+import com.hebe.report.bean.CommonResultBean;
+import com.hebe.report.utils.Utils;
 
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -57,11 +61,46 @@ public class BadAppActivity extends BaseActivity {
         String name = etBadappName.getText().toString().trim();
         String from = etBadappFrom.getText().toString().trim();
         String content = etBadappContent.getText().toString().trim();
-        if(TextUtils.isEmpty(name) || TextUtils.isEmpty(from) || TextUtils.isEmpty(content)){
+        if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(from) &&!TextUtils.isEmpty(content)){
+            showProgressDialog("正在举报");
+            RequestParams params = Utils.getDefaultParams("App/reportApp");
+            params.addBodyParameter("user_token", Utils.getUserToken(BadAppActivity.this));
+            params.addBodyParameter("name",etBadappName.getText().toString().trim());
+            params.addBodyParameter("source",etBadappFrom.getText().toString().trim());
+            params.addBodyParameter("content",etBadappContent.getText().toString().trim());
+
+            x.http().post(params, new Callback.CommonCallback<String>() {
+                @Override
+                public void onSuccess(String result) {
+                    closeProgressDialog();
+                    CommonResultBean bean = Utils.jsonParase(result,CommonResultBean.class);
+                    if (bean != null && bean.getCode() == 200){
+                        showToast("举报成功");
+                        finish();
+                    }else {
+                        showToast("举报失败");
+                    }
+                }
+
+                @Override
+                public void onError(Throwable ex, boolean isOnCallback) {
+                    closeProgressDialog();
+                }
+
+                @Override
+                public void onCancelled(CancelledException cex) {
+
+                }
+
+                @Override
+                public void onFinished() {
+
+                }
+            });
+        }else {
             showToast("请填写完整信息");
-            return;
         }
-        showToast(name+"  "+from + "  "+content);
+
 
     }
 }

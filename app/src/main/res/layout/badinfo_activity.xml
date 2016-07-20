@@ -16,6 +16,7 @@
         android:paddingLeft="16dp"
         android:text="不良舆情"/>
     <EditText
+        android:id="@+id/et_content"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/white"
@@ -26,6 +27,7 @@
         android:hint="请描述您接收到的不良舆情详情"/>
 
     <Button
+        android:id="@+id/commit_bt"
         android:layout_width="220dp"
         android:layout_height="35dp"
         android:layout_marginTop="40dp"

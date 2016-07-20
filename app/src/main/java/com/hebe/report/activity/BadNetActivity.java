@@ -1,6 +1,7 @@
 package com.hebe.report.activity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,7 +11,11 @@ import android.widget.TextView;
 
 import com.hebe.report.R;
 import com.hebe.report.base.BaseActivity;
+import com.hebe.report.bean.CommonResultBean;
+import com.hebe.report.utils.Utils;
 
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -97,7 +102,45 @@ public class BadNetActivity extends BaseActivity {
                 lay1check = 4;
                 break;
             case R.id.badnet_commit:
-                showToast(lay1check+" ");
+                if (!TextUtils.isEmpty(etBadnet.getText().toString().trim()) && lay1check != -1&&!TextUtils.isEmpty(badnetContent.getText().toString().trim())){
+                    showProgressDialog("正在举报");
+                    RequestParams params = Utils.getDefaultParams("App/reportWebSite");
+                    params.addBodyParameter("user_token", Utils.getUserToken(BadNetActivity.this));
+                    params.addBodyParameter("report_www",etBadnet.getText().toString().trim());
+                    params.addBodyParameter("content",badnetContent.getText().toString().trim());
+                    params.addBodyParameter("report_type",lay1check+"");
+
+                    x.http().post(params, new Callback.CommonCallback<String>() {
+                        @Override
+                        public void onSuccess(String result) {
+                            closeProgressDialog();
+                            CommonResultBean bean = Utils.jsonParase(result,CommonResultBean.class);
+                            if (bean != null && bean.getCode() == 200){
+                                showToast("举报成功");
+                                finish();
+                            }else {
+                                showToast("举报失败");
+                            }
+                        }
+
+                        @Override
+                        public void onError(Throwable ex, boolean isOnCallback) {
+                            closeProgressDialog();
+                        }
+
+                        @Override
+                        public void onCancelled(CancelledException cex) {
+
+                        }
+
+                        @Override
+                        public void onFinished() {
+
+                        }
+                    });
+                }else {
+                    showToast("请填写完整信息");
+                }
                 break;
         }
     }

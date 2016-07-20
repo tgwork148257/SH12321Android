@@ -63,6 +63,11 @@
                     android:text="所在区县"
                     android:textSize="15sp" />
 
+                <TextView
+                    android:id="@+id/address_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -102,6 +107,11 @@
                     android:layout_weight="1"
                     android:text="接收时间"
                     android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/select_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
                 <ImageView
                     android:layout_width="wrap_content"

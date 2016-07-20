@@ -16,6 +16,7 @@ import com.hebe.report.Constant.Constant;
 import com.hebe.report.R;
 import com.hebe.report.base.BaseActivity;
 import com.hebe.report.bean.DeviceTokenBean;
+import com.hebe.report.bean.UserToken;
 import com.hebe.report.bean.VerifyCodeBean;
 import com.hebe.report.utils.ToolsSp;
 import com.hebe.report.utils.Utils;
@@ -42,13 +43,17 @@ public class LoginActivity extends BaseActivity {
     private TextView get_code;
 
     private CountDownTimer timer;
-    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         x.view().inject(this);
+        if (Utils.getUserToken(this) != null){
+            startActivity(new Intent(this,MainActivity.class));
+            finish();
+            return;
+        }
         timer = new CountDownTimer(60*1000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -64,8 +69,8 @@ public class LoginActivity extends BaseActivity {
         login_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                finish();
+
+                login();
             }
         });
         get_code.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +80,6 @@ public class LoginActivity extends BaseActivity {
                     showToast("请输入正确的手机号码");
                     return;
                 }
-                timer.start();
                 get_code.setClickable(false);
                 getDeviceToken();
                 showProgressDialog("正在获取验证码");
@@ -86,7 +90,7 @@ public class LoginActivity extends BaseActivity {
 
     private void getDeviceToken(){
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        RequestParams params = new RequestParams(Constant.base_url+"App/getToken");
+        RequestParams params = Utils.getDefaultParams("App/getToken");
         params.addBodyParameter("app_version", "1.0");
         params.addBodyParameter("server_version", "android");
         params.addBodyParameter("appid", tm.getDeviceId());
@@ -95,8 +99,6 @@ public class LoginActivity extends BaseActivity {
             public void onSuccess(String result) {
                 DeviceTokenBean bean = Utils.jsonParase(result,DeviceTokenBean.class);
                 if (bean != null && !TextUtils.isEmpty(bean.getToken())){
-                    showToast(bean.getToken()+"");
-                    token = bean.getToken();
                     ToolsSp.saveOrUpdate(LoginActivity.this,Constant.SP_NAME,"dtoken",bean.getToken());
                     getVeriToken(login_phone.getText().toString().trim());
                 }else {
@@ -122,21 +124,20 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void getVeriToken(String mobile){
-        RequestParams params = new RequestParams(Constant.base_url+"App/getCode");
+        RequestParams params = Utils.getDefaultParams("App/getCode");
         params.addBodyParameter("mobile", mobile);
-        params.addBodyParameter("token", token);
+        params.addBodyParameter("token", ToolsSp.get(this,Constant.SP_NAME,"dtoken"));
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                showToast(result);
                 closeProgressDialog();
                 VerifyCodeBean bean = Utils.jsonParase(result,VerifyCodeBean.class);
-                if (bean != null && bean.getCode() == 4001){
-                    getDeviceToken();
-                }else if (bean != null && bean.getCode() == 200){
-                    showToast(bean.getCode()+"");
+                if (bean != null && !TextUtils.isEmpty(bean.getCode()) && !result.contains("data")){
+                    showToast("获取成功，请查收短信");
+                    timer.start();
                 }else {
-                    showToast(bean.getCode()+"");
+                    showToast("请重试");
+                    get_code.setClickable(true);
                 }
             }
 
@@ -154,6 +155,51 @@ public class LoginActivity extends BaseActivity {
 
             }
         });
+    }
+
+    public void login(){
+        if (isPhoneNumber(login_phone.getText().toString().trim()) && verify_code.getText().toString().trim().length() == 4){
+            showProgressDialog("正在登录");
+            final String phone = login_phone.getText().toString().trim();
+            RequestParams params = Utils.getDefaultParams("App/getUserToken");
+            params.addBodyParameter("mobile",phone);
+            params.addBodyParameter("token",ToolsSp.get(this,Constant.SP_NAME,"dtoken"));
+            params.addBodyParameter("code",verify_code.getText().toString().trim());
+            x.http().post(params,new Callback.CommonCallback<String>(){
+
+                @Override
+                public void onSuccess(String result) {
+                    closeProgressDialog();
+                    UserToken utoken = Utils.jsonParase(result,UserToken.class);
+                    if (utoken != null && !TextUtils.isEmpty(utoken.getUser_token())){
+                        ToolsSp.saveOrUpdate(LoginActivity.this,Constant.SP_NAME,"utoken",utoken.getUser_token());
+                        ToolsSp.saveOrUpdate(LoginActivity.this,Constant.SP_NAME,"phone",phone);
+                        showToast("登录成功");
+                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        finish();
+                    }else {
+                        showToast("登录失败");
+                    }
+                }
+
+                @Override
+                public void onError(Throwable ex, boolean isOnCallback) {
+                    closeProgressDialog();
+                }
+
+                @Override
+                public void onCancelled(CancelledException cex) {
+
+                }
+
+                @Override
+                public void onFinished() {
+
+                }
+            });
+        }else {
+            showToast("输入有误");
+        }
     }
 
     @Override

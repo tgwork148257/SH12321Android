@@ -34,6 +34,9 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:hint="请填写诈骗电话号码"
+                android:maxLines="1"
+                android:maxLength="11"
+                android:inputType="number"
                 android:paddingLeft="16dp"
                 android:textSize="15sp" />
 
@@ -52,6 +55,9 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:hint="请填写被诈骗电话号码"
+                android:maxLines="1"
+                android:maxLength="11"
+                android:inputType="number"
                 android:paddingLeft="16dp"
                 android:textSize="15sp" />
 
@@ -414,6 +420,10 @@
                     android:layout_weight="1"
                     android:text="来电时间"
                     android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/select_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
