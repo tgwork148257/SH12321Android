@@ -272,8 +272,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="已解决"
-                    android:textSize="15sp"
-                    android:id="@+id/textView2" />
+                    android:textSize="15sp"/>
 
                 <ImageView
                     android:layout_width="wrap_content"

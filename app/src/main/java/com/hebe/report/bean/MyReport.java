@@ -1,7 +1,7 @@
 package com.hebe.report.bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Hebe on 7-11-011.
@@ -10,9 +10,7 @@ import java.util.ArrayList;
 public class MyReport implements Serializable {
 
 
-
     private int code;
-
     private DataBean data;
 
     public int getCode() {
@@ -33,7 +31,7 @@ public class MyReport implements Serializable {
 
     public static class DataBean {
         private int totalPage;
-        private ArrayList<ListBean> list = new ArrayList<ListBean>();
+        private List<ListBean> list;
 
         public int getTotalPage() {
             return totalPage;
@@ -43,20 +41,28 @@ public class MyReport implements Serializable {
             this.totalPage = totalPage;
         }
 
-        public ArrayList<ListBean> getList() {
+        public List<ListBean> getList() {
             return list;
         }
 
-        public void setList(ArrayList<ListBean> list) {
+        public void setList(List<ListBean> list) {
             this.list = list;
         }
 
         public static class ListBean {
+            private String type_name;
             private String type;
             private String jw_id;
             private String report_time;
-            private String source;
             private String con_flag;
+
+            public String getType_name() {
+                return type_name;
+            }
+
+            public void setType_name(String type_name) {
+                this.type_name = type_name;
+            }
 
             public String getType() {
                 return type;
@@ -80,14 +86,6 @@ public class MyReport implements Serializable {
 
             public void setReport_time(String report_time) {
                 this.report_time = report_time;
-            }
-
-            public String getSource() {
-                return source;
-            }
-
-            public void setSource(String source) {
-                this.source = source;
             }
 
             public String getCon_flag() {

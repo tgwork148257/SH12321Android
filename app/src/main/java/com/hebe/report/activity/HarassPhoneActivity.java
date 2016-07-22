@@ -216,8 +216,8 @@ public class HarassPhoneActivity extends BaseActivity {
                     showProgressDialog("正在举报");
                     RequestParams params = Utils.getDefaultParams("App/harassMobile");
                     params.addBodyParameter("user_token", Utils.getUserToken(HarassPhoneActivity.this));
-                    params.addBodyParameter("accept_mobile",etPhone1.getText().toString().trim());
-                    params.addBodyParameter("report_mobile",etPhone2.getText().toString().trim());
+                    params.addBodyParameter("accept_mobile",etPhone2.getText().toString().trim());
+                    params.addBodyParameter("report_mobile",etPhone1.getText().toString().trim());
                     params.addBodyParameter("content",harassContent.getText().toString().trim());
                     params.addBodyParameter("harass_type",lay1check+"");
                     params.addBodyParameter("report_type",lay2check+"");

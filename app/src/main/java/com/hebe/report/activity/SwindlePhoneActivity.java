@@ -201,8 +201,8 @@ public class SwindlePhoneActivity extends BaseActivity {
                     showProgressDialog("正在举报");
                     RequestParams params = Utils.getDefaultParams("App/cheatMobile");
                     params.addBodyParameter("user_token", Utils.getUserToken(SwindlePhoneActivity.this));
-                    params.addBodyParameter("accept_mobile",etPhone1.getText().toString().trim());
-                    params.addBodyParameter("report_mobile",etPhone2.getText().toString().trim());
+                    params.addBodyParameter("accept_mobile",etPhone2.getText().toString().trim());
+                    params.addBodyParameter("report_mobile",etPhone1.getText().toString().trim());
                     params.addBodyParameter("content",swindContent.getText().toString().trim());
                     params.addBodyParameter("report_type",lay1check+"");
                     params.addBodyParameter("talk_time",lay2check+"");

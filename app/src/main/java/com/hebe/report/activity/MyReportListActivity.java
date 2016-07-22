@@ -66,36 +66,56 @@ public class MyReportListActivity extends BaseActivity {
         report_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (myReport.getData().getList().get(position).getType()){
-                    case "4":
-                        startActivity(new Intent(MyReportListActivity.this,BadMessageResultActivity.class));
+                Intent intent = new Intent();
+                switch (myReport.getData().getList().get(position).getType_name()){
+                    case "举报短信":
+                        intent = new Intent(MyReportListActivity.this,BadMessageResultActivity.class);
+                        intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
+                        startActivity(intent);
                         break;
-                    case "3":
-                        startActivity(new Intent(MyReportListActivity.this,SwindlePhoneResultActivity.class));
+                    case "举报诈骗电话":
+                        intent = new Intent(MyReportListActivity.this,SwindlePhoneResultActivity.class);
+                        intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
+                        startActivity(intent);
                         break;
-                    case "2":
-                        startActivity(new Intent(MyReportListActivity.this,HarassPhoneResultActivity.class));
+                    case "举报骚扰电话":
+                        intent = new Intent(MyReportListActivity.this,HarassPhoneResultActivity.class);
+                        intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
+                        startActivity(intent);
                         break;
-                    case "1":
-                        startActivity(new Intent(MyReportListActivity.this,BadNetResultActivity.class));
+                    case "举报网站":
+                        intent = new Intent(MyReportListActivity.this,BadNetResultActivity.class);
+                        intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
+                        startActivity(intent);
                         break;
-                    case "5":
-                        startActivity(new Intent(MyReportListActivity.this,BadAppResultActivity.class));
+                    case "举报App":
+                        intent = new Intent(MyReportListActivity.this,BadAppResultActivity.class);
+                        intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
+                        startActivity(intent);
                         break;
-                    case "6":
-                        startActivity(new Intent(MyReportListActivity.this,BadTowerResultActivity.class));
+                    case "举报伪基站":
+                        intent = new Intent(MyReportListActivity.this,BadTowerResultActivity.class);
+                        intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
+                        startActivity(intent);
                         break;
-                    case "7":
-                        startActivity(new Intent(MyReportListActivity.this,BadWifiResultActivity.class));
+                    case "举报wifi":
+                        intent = new Intent(MyReportListActivity.this,BadWifiResultActivity.class);
+                        intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
+                        startActivity(intent);
                         break;
                     case "11":
-                        startActivity(new Intent(MyReportListActivity.this,PhoneVerifyResultActivity.class));
+                        intent = new Intent(MyReportListActivity.this,PhoneVerifyResultActivity.class);
+                        intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
+                        startActivity(intent);
                         break;
-                    case "8":
-                    case "10":
-                    case "9":
-                    case "12":
-                        startActivity(new Intent(MyReportListActivity.this,MoreReportResultActivity.class));
+                    case "举报信息泄露":
+                    case "举报不良舆情":
+                    case "举报知识产权":
+                    case "举报其他":
+                        intent = new Intent(MyReportListActivity.this,MoreReportResultActivity.class);
+                        intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
+                        intent.putExtra("title",myReport.getData().getList().get(position).getType_name());
+                        startActivity(intent);
                         break;
                 }
             }
@@ -142,7 +162,7 @@ public class MyReportListActivity extends BaseActivity {
                 holder = (ViewHolder) convertView.getTag();
             }
             holder.id.setText(myReport.getData().getList().get(position).getJw_id());
-            holder.type.setText(myReport.getData().getList().get(position).getType());
+            holder.type.setText(myReport.getData().getList().get(position).getType_name());
             holder.time.setText(myReport.getData().getList().get(position).getReport_time());
             return convertView;
         }

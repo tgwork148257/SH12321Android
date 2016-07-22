@@ -68,8 +68,8 @@ public class BadMessageActivity extends BaseActivity {
                     showProgressDialog("正在举报");
                     RequestParams params = Utils.getDefaultParams("App/reportMessage");
                     params.addBodyParameter("user_token", Utils.getUserToken(BadMessageActivity.this));
-                    params.addBodyParameter("accept_mobile",phone2);
-                    params.addBodyParameter("report_mobile",phone1);
+                    params.addBodyParameter("accept_mobile",phone1);
+                    params.addBodyParameter("report_mobile",phone2);
                     params.addBodyParameter("content",content);
                     x.http().post(params, new Callback.CommonCallback<String>() {
                         @Override
