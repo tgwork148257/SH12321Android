@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.hebe.report.R;
 import com.hebe.report.base.BaseActivity;
+import com.hebe.report.bean.CommonResultBean;
 import com.hebe.report.bean.MessageResultBean;
 import com.hebe.report.bean.NetResultBean;
 import com.hebe.report.bean.SwindResultBean;
@@ -71,7 +72,7 @@ public class BadNetResultActivity extends BaseActivity {
     public void getinfo() {
         RequestParams params = Utils.getDefaultParams("App/getReportDetails");
         params.addBodyParameter("user_token", Utils.getUserToken(this));
-        params.addBodyParameter("id", jwid);
+        params.addBodyParameter("jw_id", jwid);
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -80,20 +81,7 @@ public class BadNetResultActivity extends BaseActivity {
                 if (bean != null && bean.getCode() == 200) {
                     textview1.setText(bean.getData().getType_name());
                     textview2.setText(bean.getData().getReport_www());
-                    switch (bean.getData().getReport_type()){
-                        case "1":
-                            textview3.setText("淫秽色情");
-                            break;
-                        case "2":
-                            textview3.setText("钓鱼诈骗");
-                            break;
-                        case "3":
-                            textview3.setText("反动及政治敏感");
-                            break;
-                        case "4":
-                            textview3.setText("其他");
-                            break;
-                    }
+                    textview3.setText(bean.getData().getReport_type());
                     textview4.setText(bean.getData().getContent());
                     isget = 1;
                 } else {
@@ -117,21 +105,19 @@ public class BadNetResultActivity extends BaseActivity {
         });
     }
 
-    public void submit() {
+    public void submit(){
         RequestParams params = Utils.getDefaultParams("App/reportFeedback");
         params.addBodyParameter("user_token", Utils.getUserToken(this));
-        params.addBodyParameter("id", jwid);
-        params.addBodyParameter("fadeback", (check == 1 ? "已经解决" : "未解决"));
+        params.addBodyParameter("jw_id", jwid);
+        params.addBodyParameter("feedback", check+"");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 closeProgressDialog();
-                MessageResultBean bean = Utils.jsonParase(result, MessageResultBean.class);
+                CommonResultBean bean = Utils.jsonParase(result, CommonResultBean.class);
                 if (bean != null && bean.getCode() == 200) {
-                    textview1.setText(bean.getData().getType_name());
-                    textview2.setText(bean.getData().getReport_mobile());
-                    textview3.setText(bean.getData().getAccept_mobile());
-                    textview4.setText(bean.getData().getContent());
+                    showToast("反馈成功");
+                    finish();
                 } else {
                     showToast("请重试");
                 }

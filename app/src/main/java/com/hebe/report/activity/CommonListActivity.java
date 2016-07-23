@@ -55,6 +55,7 @@ public class CommonListActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent();
                 intent.putExtra("address",items.get(position));
+                intent.putExtra("position",position);
                 setResult(101,intent);
                 finish();
             }

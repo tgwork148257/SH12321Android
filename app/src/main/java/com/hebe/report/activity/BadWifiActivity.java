@@ -126,7 +126,7 @@ public class BadWifiActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == 101){
+        if (requestCode == 1){
             address_tv.setText(data.getStringExtra("address"));
         }
     }

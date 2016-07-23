@@ -103,7 +103,7 @@ public class BadTowerActivity extends BaseActivity {
                     RequestParams params = Utils.getDefaultParams("App/reportBaseStation");
                     params.addBodyParameter("user_token", Utils.getUserToken(BadTowerActivity.this));
                     params.addBodyParameter("report_address",address_tv.getText().toString().trim()+addressDetail.getText().toString().trim());
-                    params.addBodyParameter("report_type",lay1check+"");
+                    params.addBodyParameter("report_type",lay1check==1?"短信":"电话");
                     params.addBodyParameter("content",towerContent.getText().toString().trim());
                     params.addBodyParameter("call_time",select_time_tv.getText().toString().trim());
 

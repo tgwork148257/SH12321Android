@@ -108,7 +108,22 @@ public class BadNetActivity extends BaseActivity {
                     params.addBodyParameter("user_token", Utils.getUserToken(BadNetActivity.this));
                     params.addBodyParameter("report_www",etBadnet.getText().toString().trim());
                     params.addBodyParameter("content",badnetContent.getText().toString().trim());
-                    params.addBodyParameter("report_type",lay1check+"");
+                    String lay1String="";
+                    switch (lay1check){
+                        case 1:
+                            lay1String= "淫秽色情";
+                            break;
+                        case 2:
+                            lay1String = "钓鱼诈骗";
+                            break;
+                        case 3:
+                            lay1String = "反动及政治敏感";
+                            break;
+                        case 4:
+                            lay1String = "其他";
+                            break;
+                    }
+                    params.addBodyParameter("report_type",lay1String);
 
                     x.http().post(params, new Callback.CommonCallback<String>() {
                         @Override

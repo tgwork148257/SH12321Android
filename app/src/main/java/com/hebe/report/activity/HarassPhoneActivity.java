@@ -219,9 +219,57 @@ public class HarassPhoneActivity extends BaseActivity {
                     params.addBodyParameter("accept_mobile",etPhone2.getText().toString().trim());
                     params.addBodyParameter("report_mobile",etPhone1.getText().toString().trim());
                     params.addBodyParameter("content",harassContent.getText().toString().trim());
-                    params.addBodyParameter("harass_type",lay1check+"");
-                    params.addBodyParameter("report_type",lay2check+"");
-                    params.addBodyParameter("talk_time",lay3check+"");
+                    String lay1String="";
+                    switch (lay1check){
+                        case 1:
+                            lay1String= "响一声就挂";
+                            break;
+                        case 2:
+                            lay1String = "自动语音骚扰";
+                            break;
+                        case 3:
+                            lay1String = "人工骚扰";
+                            break;
+                    }
+                    params.addBodyParameter("harass_type",lay1String);
+                    String lay2String="";
+                    switch (lay2check){
+                        case 1:
+                            lay2String= "色情";
+                            break;
+                        case 2:
+                            lay2String = "发票";
+                            break;
+                        case 3:
+                            lay2String = "违禁品";
+                            break;
+                        case 4:
+                            lay2String = "高利贷";
+                            break;
+                        case 5:
+                            lay2String = "反动";
+                            break;
+                        case 6:
+                            lay2String = "广告骚扰";
+                            break;
+                    }
+                    params.addBodyParameter("report_type",lay2String);
+                    String lay3String="";
+                    switch (lay3check){
+                        case 1:
+                            lay3String= "三分钟以下";
+                            break;
+                        case 2:
+                            lay3String = "3-5分钟";
+                            break;
+                        case 3:
+                            lay3String = "5-10分钟";
+                            break;
+                        case 4:
+                            lay3String = "10分钟以上";
+                            break;
+                    }
+                    params.addBodyParameter("talk_time",lay3String);
                     params.addBodyParameter("call_time",select_time_tv.getText().toString().trim());
 
                     x.http().post(params, new Callback.CommonCallback<String>() {

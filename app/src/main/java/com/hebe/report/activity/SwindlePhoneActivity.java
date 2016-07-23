@@ -72,14 +72,6 @@ public class SwindlePhoneActivity extends BaseActivity {
     ImageView lay2Layout4Img;
     @ViewInject(R.id.lay2_layout4)
     LinearLayout lay2Layout4;
-    @ViewInject(R.id.lay2_layout5_img)
-    ImageView lay2Layout5Img;
-    @ViewInject(R.id.lay2_layout5)
-    LinearLayout lay2Layout5;
-    @ViewInject(R.id.lay2_layout6_img)
-    ImageView lay2Layout6Img;
-    @ViewInject(R.id.lay2_layout6)
-    LinearLayout lay2Layout6;
     @ViewInject(R.id.select_time)
     LinearLayout selectTime;
     @ViewInject(R.id.swind_content)
@@ -125,8 +117,6 @@ public class SwindlePhoneActivity extends BaseActivity {
         lay2Layout2Img.setImageResource(R.drawable.but_uncheck);
         lay2Layout3Img.setImageResource(R.drawable.but_uncheck);
         lay2Layout4Img.setImageResource(R.drawable.but_uncheck);
-        lay2Layout5Img.setImageResource(R.drawable.but_uncheck);
-        lay2Layout6Img.setImageResource(R.drawable.but_uncheck);
     }
 
     @Event({R.id.lay1_layout1, R.id.lay1_layout2, R.id.lay1_layout3, R.id.lay1_layout4, R.id.lay1_layout5, R.id.lay1_layout6, R.id.lay2_layout1, R.id.lay2_layout2, R.id.lay2_layout3, R.id.lay2_layout4, R.id.lay2_layout5, R.id.lay2_layout6, R.id.select_time, R.id.swind_commit})
@@ -182,16 +172,6 @@ public class SwindlePhoneActivity extends BaseActivity {
                 lay2Layout4Img.setImageResource(R.drawable.but_checked);
                 lay2check = 4;
                 break;
-            case R.id.lay2_layout5:
-                resetLay2();
-                lay2Layout5Img.setImageResource(R.drawable.but_checked);
-                lay2check = 5;
-                break;
-            case R.id.lay2_layout6:
-                resetLay2();
-                lay2Layout6Img.setImageResource(R.drawable.but_checked);
-                lay2check = 6;
-                break;
             case R.id.select_time:
                 DateTimeDialog dialog = new DateTimeDialog(SwindlePhoneActivity.this,null);
                 dialog.dateTimePicKDialog(select_time_tv);
@@ -204,8 +184,44 @@ public class SwindlePhoneActivity extends BaseActivity {
                     params.addBodyParameter("accept_mobile",etPhone2.getText().toString().trim());
                     params.addBodyParameter("report_mobile",etPhone1.getText().toString().trim());
                     params.addBodyParameter("content",swindContent.getText().toString().trim());
-                    params.addBodyParameter("report_type",lay1check+"");
-                    params.addBodyParameter("talk_time",lay2check+"");
+                    String lay1String="";
+                    switch (lay1check){
+                        case 1:
+                            lay1String= "中奖诈骗";
+                            break;
+                        case 2:
+                            lay1String = "金融类诈骗";
+                            break;
+                        case 3:
+                            lay1String = "冒充公检法";
+                            break;
+                        case 4:
+                            lay1String = "冒充领导";
+                            break;
+                        case 5:
+                            lay1String = "网购类诈骗";
+                            break;
+                        case 6:
+                            lay1String = "其他";
+                            break;
+                    }
+                    params.addBodyParameter("report_type",lay1String);
+                    String lay2String="";
+                    switch (lay2check){
+                        case 1:
+                            lay2String= "三分钟以下";
+                            break;
+                        case 2:
+                            lay2String = "3-5分钟";
+                            break;
+                        case 3:
+                            lay2String = "5-10分钟";
+                            break;
+                        case 4:
+                            lay2String = "10分钟以上";
+                            break;
+                    }
+                    params.addBodyParameter("talk_time",lay2String);
                     params.addBodyParameter("call_time",select_time_tv.getText().toString().trim());
 
                     x.http().post(params, new Callback.CommonCallback<String>() {

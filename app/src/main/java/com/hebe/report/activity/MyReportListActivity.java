@@ -103,7 +103,7 @@ public class MyReportListActivity extends BaseActivity {
                         intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
                         startActivity(intent);
                         break;
-                    case "11":
+                    case "举报手机实名认证":
                         intent = new Intent(MyReportListActivity.this,PhoneVerifyResultActivity.class);
                         intent.putExtra("jwid",myReport.getData().getList().get(position).getJw_id());
                         startActivity(intent);

@@ -105,6 +105,12 @@
                         android:layout_weight="1"
                         android:text="违规原因"
                         android:textSize="15sp"/>
+                    <TextView
+                        android:id="@+id/shitiweigui_yuanyin_tv"
+                        android:ellipsize="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -171,6 +177,13 @@
                         android:layout_weight="1"
                         android:text="购卡时间"
                         android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/shiti_goukashijian_tv"
+                        android:ellipsize="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"/>
+
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -197,6 +210,12 @@
                         android:layout_weight="1"
                         android:text="所属运营商"
                         android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/shiti_yunyingshang_tv"
+                        android:ellipsize="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -231,6 +250,12 @@
                         android:layout_weight="1"
                         android:text="所在区县"
                         android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/shiti_quxian_tv"
+                        android:ellipsize="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -271,6 +296,10 @@
                         android:layout_weight="1"
                         android:text="实体店照片"
                         android:textSize="15sp" />
+                    <ImageView
+                        android:id="@+id/shiti_zhaopian"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -297,6 +326,10 @@
                         android:layout_weight="1"
                         android:text="本人持卡照片"
                         android:textSize="15sp" />
+                    <ImageView
+                        android:id="@+id/shiti_benrenzhaopian"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -354,6 +387,12 @@
                         android:layout_weight="1"
                         android:text="违规原因"
                         android:textSize="15sp"/>
+                    <TextView
+                        android:id="@+id/wangdian_weigui_tv"
+                        android:ellipsize="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -420,6 +459,12 @@
                         android:layout_weight="1"
                         android:text="购卡时间"
                         android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/wangdian_goukashijian_tv"
+                        android:ellipsize="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -446,6 +491,12 @@
                         android:layout_weight="1"
                         android:text="所属运营商"
                         android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/wangdian_yunyingshang_tv"
+                        android:ellipsize="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -478,7 +529,7 @@
                     android:paddingLeft="16dp"
                     android:paddingTop="8dp"
                     android:textSize="15sp"
-                    android:hint="详细地址"/>
+                    android:hint="填写网址"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -505,7 +556,7 @@
                     android:paddingLeft="16dp"
                     android:paddingTop="8dp"
                     android:textSize="15sp"
-                    android:hint="详细地址"/>
+                    android:hint="填写销售页面地址"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -526,7 +577,10 @@
                         android:layout_weight="1"
                         android:text="订单确认截图"
                         android:textSize="15sp" />
-
+                    <ImageView
+                        android:id="@+id/wangdian_dingdanzhaopian"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"/>
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -552,6 +606,10 @@
                         android:layout_weight="1"
                         android:text="本人持卡照片"
                         android:textSize="15sp" />
+                    <ImageView
+                        android:id="@+id/wangdian_benrenzhaopian"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"/>
 
                     <ImageView
                         android:layout_width="wrap_content"

@@ -34,7 +34,7 @@ public class AppResultBean {
         private String add_time;
         private String mobile;
         private String con_flag;
-        private String id;
+        private String jw_id;
 
         public String getType_name() {
             return type_name;
@@ -101,11 +101,11 @@ public class AppResultBean {
         }
 
         public String getId() {
-            return id;
+            return jw_id;
         }
 
         public void setId(String id) {
-            this.id = id;
+            this.jw_id = id;
         }
     }
 }

@@ -1,10 +1,10 @@
 package com.hebe.report.bean;
 
 /**
- * Created by Hebe on 7-23-023.
+ * Created by Hebe on 16/7/23.
  */
 
-public class NetResultBean {
+public class WifiResultBean {
 
     private int code;
     private DataBean data;
@@ -27,13 +27,13 @@ public class NetResultBean {
 
     public static class DataBean {
         private String type_name;
-        private String report_www;
-        private String report_type;
-        private String content;
+        private String call_time;
+        private String report_address;
+        private String name;
+        private Object content;
         private String type;
         private String add_time;
         private String mobile;
-        private String con_flag;
         private String jw_id;
 
         public String getType_name() {
@@ -44,27 +44,35 @@ public class NetResultBean {
             this.type_name = type_name;
         }
 
-        public String getReport_www() {
-            return report_www;
+        public String getCall_time() {
+            return call_time;
         }
 
-        public void setReport_www(String report_www) {
-            this.report_www = report_www;
+        public void setCall_time(String call_time) {
+            this.call_time = call_time;
         }
 
-        public String getReport_type() {
-            return report_type;
+        public String getReport_address() {
+            return report_address;
         }
 
-        public void setReport_type(String report_type) {
-            this.report_type = report_type;
+        public void setReport_address(String report_address) {
+            this.report_address = report_address;
         }
 
-        public String getContent() {
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Object getContent() {
             return content;
         }
 
-        public void setContent(String content) {
+        public void setContent(Object content) {
             this.content = content;
         }
 
@@ -92,20 +100,12 @@ public class NetResultBean {
             this.mobile = mobile;
         }
 
-        public String getCon_flag() {
-            return con_flag;
-        }
-
-        public void setCon_flag(String con_flag) {
-            this.con_flag = con_flag;
-        }
-
-        public String getId() {
+        public String getJw_id() {
             return jw_id;
         }
 
-        public void setId(String id) {
-            this.jw_id = id;
+        public void setJw_id(String jw_id) {
+            this.jw_id = jw_id;
         }
     }
 }

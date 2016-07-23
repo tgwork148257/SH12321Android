@@ -36,7 +36,7 @@ public class SwindResultBean {
         private String type;
         private String add_time;
         private String mobile;
-        private String id;
+        private String jw_id;
 
         public String getType_name() {
             return type_name;
@@ -119,11 +119,11 @@ public class SwindResultBean {
         }
 
         public String getId() {
-            return id;
+            return jw_id;
         }
 
         public void setId(String id) {
-            this.id = id;
+            this.jw_id = id;
         }
     }
 }
