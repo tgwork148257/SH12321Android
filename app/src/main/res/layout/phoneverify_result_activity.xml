@@ -29,6 +29,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/textview1"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@color/white"
@@ -58,9 +59,9 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/textview2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12343454656"
                     android:textSize="15sp" />
             </LinearLayout>
             <View
@@ -77,16 +78,17 @@
                 android:paddingRight="16dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="违规原因"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textview3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="12343454656"
+                    android:layout_marginLeft="15dp"
                     android:textSize="15sp" />
             </LinearLayout>
             <View
@@ -110,9 +112,9 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/textview4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12343454656"
                     android:textSize="15sp" />
             </LinearLayout>
             <View
@@ -136,9 +138,9 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/textview5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12343454656"
                     android:textSize="15sp" />
             </LinearLayout>
             <View
@@ -162,10 +164,10 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/textview6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12343454656"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -188,9 +190,9 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/textview7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12343454656"
                     android:textSize="15sp" />
             </LinearLayout>
             <View
@@ -207,16 +209,16 @@
                 android:paddingRight="16dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="网址/地址"
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/textview8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12343454656"
                     android:textSize="15sp" />
             </LinearLayout>
             <View
@@ -233,16 +235,16 @@
                 android:paddingRight="16dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="详情描述"
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/textview9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12343454656"
                     android:textSize="15sp" />
             </LinearLayout>
             <View
@@ -275,6 +277,7 @@
                     android:textSize="15sp"/>
 
                 <ImageView
+                    android:id="@+id/check1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -300,6 +303,7 @@
                     android:textSize="15sp" />
 
                 <ImageView
+                    android:id="@+id/check2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/but_uncheck"/>
@@ -310,6 +314,7 @@
                 android:background="@color/text_gray"/>
 
             <Button
+                android:id="@+id/summit"
                 android:layout_width="220dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_horizontal"
