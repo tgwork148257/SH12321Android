@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -62,6 +63,7 @@ public class MyReportListActivity extends BaseActivity {
             }
         });
         adapter = new ReportListAdapter();
+        initFootView();
         report_list.setAdapter(adapter);
         report_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -121,6 +123,27 @@ public class MyReportListActivity extends BaseActivity {
             }
         });
         getReportList();
+        report_list.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                if (footerView != null&&myReport != null && myReport.getData() != null && myReport.getData().getTotalPage() >0){
+                    int total = myReport.getData().getTotalPage();
+                    if (!isLoading&&page <= total && (visibleItemCount+firstVisibleItem) == totalItemCount&&!loadOver){
+                        report_list.removeFooterView(footerView);
+                        report_list.addFooterView(footerView);
+                        getReportList();
+                        isLoading = true;
+                    }else {
+                        report_list.removeFooterView(footerView);
+                    }
+                }
+            }
+        });
     }
 
     private class ReportListAdapter extends BaseAdapter {
@@ -169,7 +192,7 @@ public class MyReportListActivity extends BaseActivity {
     }
 
     public void getReportList(){
-        RequestParams params = Utils.getDefaultParams("App/reportList");
+        final RequestParams params = Utils.getDefaultParams("App/reportList");
         params.addBodyParameter("user_token", Utils.getUserToken(this));
         params.addBodyParameter("page",page+"");
         x.http().post(params, new Callback.CommonCallback<String>() {
@@ -181,17 +204,20 @@ public class MyReportListActivity extends BaseActivity {
                         myReport = bean;
                     }else {
                         myReport.getData().getList().addAll(bean.getData().getList());
-                    }
 
+                    }
+                    page++;
                     adapter.notifyDataSetChanged();
                 }else {
                     showToast("请重试");
+                    loadOver = true;
                 }
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
                 closeProgressDialog();
+                loadOver = true;
             }
 
             @Override
@@ -200,7 +226,8 @@ public class MyReportListActivity extends BaseActivity {
 
             @Override
             public void onFinished() {
-
+                report_list.removeFooterView(footerView);
+                isLoading = false;
             }
         });
     }
@@ -209,5 +236,14 @@ public class MyReportListActivity extends BaseActivity {
         private TextView id;
         private TextView type;
         private TextView time;
+    }
+
+    private View footerView;
+    private boolean loadOver = false;
+    private boolean isLoading = false;
+    private void initFootView(){
+        footerView = LayoutInflater.from(this).inflate(R.layout.list_footer,null,false);
+        footerView.setVisibility(View.GONE);
+        report_list.addFooterView(footerView);
     }
 }

@@ -1,16 +1,20 @@
 package com.hebe.report.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.hebe.report.R;
+import com.hebe.report.activity.NewsDetailActivity;
 import com.hebe.report.base.BaseFragment;
 import com.hebe.report.bean.MyReport;
 import com.hebe.report.bean.NewsListBean;
@@ -32,14 +36,44 @@ public class NewsFragment extends BaseFragment {
     private ListView news_list;
     private NewsAdapter adapter;
     private NewsListBean newsListBean;
+    private int page = 1;
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_news_layout,null);
         x.view().inject(this,view);
         adapter = new NewsAdapter();
         news_list.setAdapter(adapter);
         getReportList();
+        news_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
+                intent.putExtra("news_id",newsListBean.getData().getList().get(position).getNews_id());
+                startActivity(intent);
+            }
+        });
+//        news_list.setOnScrollListener(new AbsListView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(AbsListView view, int scrollState) {
+//
+//            }
+//
+//            @Override
+//            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+//                if (footerView != null&&newsListBean != null && newsListBean.getData() != null && newsListBean.getData().getTotalPage() >0){
+//                    int total = newsListBean.getData().getTotalPage();
+//                    if (!isLoading&&page <= total && (visibleItemCount+firstVisibleItem) == totalItemCount&&!loadOver){
+//                        news_list.removeFooterView(footerView);
+//                        news_list.addFooterView(footerView);
+//                        getReportList();
+//                        isLoading = true;
+//                    }else {
+//                        news_list.removeFooterView(footerView);
+//                    }
+//                }
+//            }
+//        });
         return view;
     }
 
@@ -98,16 +132,23 @@ public class NewsFragment extends BaseFragment {
             public void onSuccess(String result) {
                 NewsListBean bean = Utils.jsonParase(result,NewsListBean.class);
                 if (bean != null && bean.getCode() == 200){
-                    newsListBean = bean;
+                    if (newsListBean == null || newsListBean.getData() == null){
+                        newsListBean = bean;
+                    }else {
+                        newsListBean.getData().getList().addAll(bean.getData().getList());
+
+                    }
+//                    page++;
                     adapter.notifyDataSetChanged();
                 }else {
                     showToast("请重试");
+//                    loadOver = true;
                 }
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-
+                loadOver = true;
             }
 
             @Override
@@ -116,8 +157,18 @@ public class NewsFragment extends BaseFragment {
 
             @Override
             public void onFinished() {
-
+//                news_list.removeFooterView(footerView);
+//                isLoading = false;
             }
         });
+    }
+
+    private View footerView;
+    private boolean loadOver = false;
+    private boolean isLoading = false;
+    private void initFootView(){
+        footerView = LayoutInflater.from(getActivity()).inflate(R.layout.list_footer,null,false);
+        footerView.setVisibility(View.GONE);
+        news_list.addFooterView(footerView);
     }
 }
