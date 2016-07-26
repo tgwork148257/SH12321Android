@@ -24,18 +24,30 @@ import org.xutils.x;
 
 public class NewsDetailActivity extends BaseActivity{
     private String news_id;
+    private String title;
+    private String from;
+    private String time;
     @ViewInject(R.id.navi_title)
     private TextView navi_title;
     @ViewInject(R.id.navi_back)
     private ImageView navi_back;
     @ViewInject(R.id.news_detail_main)
     private LinearLayout main;
+    @ViewInject(R.id.news_title)
+    private TextView news_title;
+    @ViewInject(R.id.news_from)
+    private TextView news_from;
+    @ViewInject(R.id.news_time)
+    private TextView news_time;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_detail_activity);
         x.view().inject(this);
         news_id = getIntent().getStringExtra("news_id");
+        title = getIntent().getStringExtra("title");
+        from = getIntent().getStringExtra("from");
+        time = getIntent().getStringExtra("time");
         navi_title.setText("新闻详情");
         navi_back.setVisibility(View.VISIBLE);
         navi_back.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +56,9 @@ public class NewsDetailActivity extends BaseActivity{
                 finish();
             }
         });
+        news_title.setText(title);
+        news_time.setText(time);
+        news_from.setText("来自: "+from);
         getNewsDetail();
     }
 

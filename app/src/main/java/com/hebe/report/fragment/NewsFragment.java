@@ -50,6 +50,9 @@ public class NewsFragment extends BaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
                 intent.putExtra("news_id",newsListBean.getData().getList().get(position).getNews_id());
+                intent.putExtra("title",newsListBean.getData().getList().get(position).getTitle());
+                intent.putExtra("from",newsListBean.getData().getList().get(position).getSource());
+                intent.putExtra("time",newsListBean.getData().getList().get(position).getAdd_time());
                 startActivity(intent);
             }
         });

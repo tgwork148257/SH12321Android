@@ -48,6 +48,7 @@ public class MyReportListActivity extends BaseActivity {
     private MyReport myReport = new MyReport();
     private int page = 1;
     private ReportListAdapter adapter;
+    private boolean isCanLoad = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,11 +134,14 @@ public class MyReportListActivity extends BaseActivity {
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 if (footerView != null&&myReport != null && myReport.getData() != null && myReport.getData().getTotalPage() >0){
                     int total = myReport.getData().getTotalPage();
-                    if (!isLoading&&page <= total && (visibleItemCount+firstVisibleItem) == totalItemCount&&!loadOver){
+                    if (!isLoading&&page <= total && (visibleItemCount+firstVisibleItem) == totalItemCount&&!loadOver&&isCanLoad){
                         report_list.removeFooterView(footerView);
                         report_list.addFooterView(footerView);
                         getReportList();
                         isLoading = true;
+                        if (total == 1){
+                            isCanLoad = false;
+                        }
                     }else {
                         report_list.removeFooterView(footerView);
                     }
@@ -209,7 +213,7 @@ public class MyReportListActivity extends BaseActivity {
                     page++;
                     adapter.notifyDataSetChanged();
                 }else {
-                    showToast("请重试");
+//                    showToast("没有更多");
                     loadOver = true;
                 }
             }

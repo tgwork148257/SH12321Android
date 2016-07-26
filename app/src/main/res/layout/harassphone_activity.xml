@@ -36,7 +36,7 @@
                 android:maxLines="1"
                 android:maxLength="11"
                 android:inputType="number"
-                android:hint="请填写骚扰电话号码"
+                android:hint="如：02166528739，13918549752"
                 android:paddingLeft="16dp"
                 android:textSize="15sp" />
 
@@ -57,7 +57,7 @@
                 android:maxLines="1"
                 android:maxLength="11"
                 android:inputType="number"
-                android:hint="请填写被骚扰电话号码"
+                android:hint="如：02166528739，13918549752"
                 android:paddingLeft="16dp"
                 android:textSize="15sp" />
 

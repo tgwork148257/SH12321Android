@@ -50,7 +50,7 @@ public class Constant {
         quxian.add("金山区");
         quxian.add("松江区");
         quxian.add("青浦区");
-        quxian.add("崇明县");
+        quxian.add("崇明区");
 
         weiguishiti.add("无需本人身份证原件即售卡");
         weiguishiti.add("无二代证识别设备");

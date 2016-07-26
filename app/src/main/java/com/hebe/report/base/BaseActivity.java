@@ -63,7 +63,7 @@ public abstract class BaseActivity extends FragmentActivity{
 
 
 	public void showToast(String msg){
-		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();;
+		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 	}
 
 	public void showProgressDialog(String msg){
@@ -152,8 +152,9 @@ public abstract class BaseActivity extends FragmentActivity{
 	public boolean isPhoneNumber(String phone){
 		if (TextUtils.isEmpty(phone))
 			return false;
-		Pattern p = Pattern.compile("^(1\\d{10})$");
-		Matcher m = p.matcher(phone);
-		return m.matches();
+//		Pattern p = Pattern.compile("^(1\\d{10})$");
+//		Matcher m = p.matcher(phone);
+//		return m.matches();
+		return  true;
 	}
 }

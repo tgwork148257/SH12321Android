@@ -9,9 +9,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hebe.report.R;
@@ -86,7 +88,7 @@ public class ReportInnerFragment extends BaseFragment{
             convertView = LayoutInflater.from(getActivity()).inflate(R.layout.report_item,null,false);
             int height = (view.getHeight() - 2*dip2px(getActivity(),1))/3;
             int width = (getDisplayMetrics().widthPixels - 2*dip2px(getActivity(),1))/3;
-            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(width,height);
+            AbsListView.LayoutParams params = new AbsListView.LayoutParams(width,height);
             convertView.setLayoutParams(params);
             ImageView icon = (ImageView) convertView.findViewById(R.id.report_item_icon);
             if (itemBeens.get(position).getDrawableId() != 0)
