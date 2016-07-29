@@ -22,6 +22,7 @@ import com.hebe.report.activity.BadWifiActivity;
 import com.hebe.report.activity.MyReportListActivity;
 import com.hebe.report.base.BaseFragment;
 import com.hebe.report.bean.CommonResultBean;
+import com.hebe.report.bean.UpdateBean;
 import com.hebe.report.utils.Utils;
 
 import org.xutils.common.Callback;
@@ -68,12 +69,13 @@ public class MeFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
 //                showdialog();
+                checkUpdate();
             }
         });
         return view;
     }
 
-    public void showdialog(){
+    public void showdialog(final UpdateBean bean){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setCancelable(false);
         final View view = LayoutInflater.from(getActivity()).inflate(R.layout.download_layout,null,false);
@@ -96,7 +98,7 @@ public class MeFragment extends BaseFragment {
             public void onClick(View v) {
                 down.setEnabled(false);
                 cancle.setEnabled(false);
-                download(content,"http://180.153.93.43/imtt.dd.qq.com/16891/D94E56B15E368A769706B922AF683E86.apk?mkey=57970c6fe2ca6f2b&f=d688&c=0&fsname=com.vlocker.locker_3.2.8_328.apk&csr=4d5s&p=.apk");
+                download(content,bean.getUrl());
                 cancle.setVisibility(View.GONE);
                 down.setVisibility(View.GONE);
             }
@@ -104,14 +106,26 @@ public class MeFragment extends BaseFragment {
     }
 
     public void checkUpdate(){
-        RequestParams params = Utils.getDefaultParams("App/reportWifi");
+        RequestParams params = Utils.getDefaultParams("App/updateVersion");
         params.addBodyParameter("user_token", Utils.getUserToken(getActivity()));
+        params.addBodyParameter("device", "android");
 
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                CommonResultBean bean = Utils.jsonParase(result,CommonResultBean.class);
-                if (bean != null && bean.getCode() == 200){
+                UpdateBean bean = Utils.jsonParase(result,UpdateBean.class);
+                if (bean != null && result.contains("http")){
+                    PackageInfo info = null;
+                    try {
+                        info = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(),0);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    if (!info.versionName.equals(bean.getVersion())){
+                        showdialog(bean);
+                    }else {
+                        showToast("已是最新版本");
+                    }
 
                 }else {
                     showToast("检查失败");
@@ -120,7 +134,7 @@ public class MeFragment extends BaseFragment {
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-
+                showToast("检查失败");
             }
 
             @Override
