@@ -103,12 +103,15 @@ public class LoginActivity extends BaseActivity {
                     getVeriToken(login_phone.getText().toString().trim());
                 }else {
                     closeProgressDialog();
+                    get_code.setEnabled(true);
                 }
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
                 closeProgressDialog();
+                showToast("获取失败");
+                get_code.setEnabled(true);
             }
 
             @Override
@@ -144,6 +147,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
                 closeProgressDialog();
+                get_code.setClickable(true);
             }
 
             @Override
