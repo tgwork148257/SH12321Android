@@ -253,7 +253,31 @@ public class SwindlePhoneActivity extends BaseActivity {
                         }
                     });
                 }else {
-                    showToast("请填写完整信息");
+                    if (TextUtils.isEmpty(etPhone1.getText().toString().trim())){
+                        showToast("请填写诈骗电话号码");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(etPhone2.getText().toString().trim())){
+                        showToast("请填写被诈骗电话号码");
+                        return;
+                    }
+                    if (lay1check == -1){
+                        showToast("请选择诈骗类型");
+                        return;
+                    }
+                    if (lay2check == -1){
+                        showToast("请选择通话时长");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(select_time_tv.getText().toString().trim())){
+                        showToast("请选择来电时间");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(swindContent.getText().toString().trim())){
+                        showToast("请填写诈骗内容");
+                        return;
+                    }
+
                 }
                 break;
         }

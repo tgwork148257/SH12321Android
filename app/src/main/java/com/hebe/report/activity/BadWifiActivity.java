@@ -117,7 +117,22 @@ public class BadWifiActivity extends BaseActivity {
                         }
                     });
                 }else {
-                    showToast("请填写完整信息");
+                    if (TextUtils.isEmpty(etBadwifiName.getText().toString().trim())){
+                        showToast("请填写不良WIFI名称");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(address_tv.getText().toString().trim())){
+                        showToast("请选择不良WIFI区县");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(etBadwifiDetail.getText().toString().trim())){
+                        showToast("请填写不良WIFI详细地址");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(select_time_tv.getText().toString().trim())){
+                        showToast("请选择不良WIFI接收时间");
+                        return;
+                    }
                 }
                 break;
         }
@@ -126,7 +141,7 @@ public class BadWifiActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1){
+        if (requestCode == 1 && data != null){
             address_tv.setText(data.getStringExtra("address"));
         }
     }

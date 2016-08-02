@@ -97,6 +97,10 @@ public class HarassPhoneActivity extends BaseActivity {
     private TextView navi_title;
     @ViewInject(R.id.navi_back)
     private ImageView navi_back;
+    @ViewInject(R.id.all_layout2)
+    LinearLayout all_layout2;
+    @ViewInject(R.id.all_layout3)
+    LinearLayout all_layout3;
 
     private int lay1check = -1;
     private int lay2check = -1;
@@ -146,16 +150,22 @@ public class HarassPhoneActivity extends BaseActivity {
                 resetLay1();
                 lay1Layout1Img.setImageResource(R.drawable.but_checked);
                 lay1check = 1;
+                all_layout2.setVisibility(View.GONE);
+                all_layout3.setVisibility(View.GONE);
                 break;
             case R.id.lay1_layout2:
                 resetLay1();
                 lay1Layout2Img.setImageResource(R.drawable.but_checked);
                 lay1check = 2;
+                all_layout2.setVisibility(View.VISIBLE);
+                all_layout3.setVisibility(View.VISIBLE);
                 break;
             case R.id.lay1_layout3:
                 resetLay1();
                 lay1Layout3Img.setImageResource(R.drawable.but_checked);
                 lay1check = 3;
+                all_layout2.setVisibility(View.VISIBLE);
+                all_layout3.setVisibility(View.VISIBLE);
                 break;
             case R.id.lay2_layout1:
                 resetLay2();
@@ -212,97 +222,241 @@ public class HarassPhoneActivity extends BaseActivity {
                 dialog.dateTimePicKDialog(select_time_tv);
                 break;
             case R.id.harass_commit:
-                if (isPhoneNumber(etPhone1.getText().toString().trim())&&isPhoneNumber(etPhone2.getText().toString().trim())&&lay1check !=-1&&lay2check!=-1&& lay3check != -1&& !TextUtils.isEmpty(select_time_tv.getText().toString().trim())&&!TextUtils.isEmpty(harassContent.getText().toString().trim())){
-                    showProgressDialog("正在举报");
-                    RequestParams params = Utils.getDefaultParams("App/harassMobile");
-                    params.addBodyParameter("user_token", Utils.getUserToken(HarassPhoneActivity.this));
-                    params.addBodyParameter("accept_mobile",etPhone2.getText().toString().trim());
-                    params.addBodyParameter("report_mobile",etPhone1.getText().toString().trim());
-                    params.addBodyParameter("content",harassContent.getText().toString().trim());
-                    String lay1String="";
-                    switch (lay1check){
-                        case 1:
-                            lay1String= "响一声就挂";
-                            break;
-                        case 2:
-                            lay1String = "自动语音骚扰";
-                            break;
-                        case 3:
-                            lay1String = "人工骚扰";
-                            break;
-                    }
-                    params.addBodyParameter("harass_type",lay1String);
-                    String lay2String="";
-                    switch (lay2check){
-                        case 1:
-                            lay2String= "色情";
-                            break;
-                        case 2:
-                            lay2String = "发票";
-                            break;
-                        case 3:
-                            lay2String = "违禁品";
-                            break;
-                        case 4:
-                            lay2String = "高利贷";
-                            break;
-                        case 5:
-                            lay2String = "反动";
-                            break;
-                        case 6:
-                            lay2String = "广告骚扰";
-                            break;
-                    }
-                    params.addBodyParameter("report_type",lay2String);
-                    String lay3String="";
-                    switch (lay3check){
-                        case 1:
-                            lay3String= "三分钟以下";
-                            break;
-                        case 2:
-                            lay3String = "3-5分钟";
-                            break;
-                        case 3:
-                            lay3String = "5-10分钟";
-                            break;
-                        case 4:
-                            lay3String = "10分钟以上";
-                            break;
-                    }
-                    params.addBodyParameter("talk_time",lay3String);
-                    params.addBodyParameter("call_time",select_time_tv.getText().toString().trim());
+                if (lay1check != -1 && lay1check != 1){
+                    if (isPhoneNumber(etPhone1.getText().toString().trim())&&isPhoneNumber(etPhone2.getText().toString().trim())&&lay1check !=-1&&lay2check!=-1&& lay3check != -1&& !TextUtils.isEmpty(select_time_tv.getText().toString().trim())&&!TextUtils.isEmpty(harassContent.getText().toString().trim())){
+                        showProgressDialog("正在举报");
+                        RequestParams params = Utils.getDefaultParams("App/harassMobile");
+                        params.addBodyParameter("user_token", Utils.getUserToken(HarassPhoneActivity.this));
+                        params.addBodyParameter("accept_mobile",etPhone2.getText().toString().trim());
+                        params.addBodyParameter("report_mobile",etPhone1.getText().toString().trim());
+                        params.addBodyParameter("content",harassContent.getText().toString().trim());
+                        String lay1String="";
+                        switch (lay1check){
+                            case 1:
+                                lay1String= "响一声就挂";
+                                break;
+                            case 2:
+                                lay1String = "自动语音骚扰";
+                                break;
+                            case 3:
+                                lay1String = "人工骚扰";
+                                break;
+                        }
+                        params.addBodyParameter("harass_type",lay1String);
+                        String lay2String="";
+                        switch (lay2check){
+                            case 1:
+                                lay2String= "色情";
+                                break;
+                            case 2:
+                                lay2String = "发票";
+                                break;
+                            case 3:
+                                lay2String = "违禁品";
+                                break;
+                            case 4:
+                                lay2String = "高利贷";
+                                break;
+                            case 5:
+                                lay2String = "反动";
+                                break;
+                            case 6:
+                                lay2String = "广告骚扰";
+                                break;
+                        }
+                        params.addBodyParameter("report_type",lay2String);
+                        String lay3String="";
+                        switch (lay3check){
+                            case 1:
+                                lay3String= "三分钟以下";
+                                break;
+                            case 2:
+                                lay3String = "3-5分钟";
+                                break;
+                            case 3:
+                                lay3String = "5-10分钟";
+                                break;
+                            case 4:
+                                lay3String = "10分钟以上";
+                                break;
+                        }
+                        params.addBodyParameter("talk_time",lay3String);
+                        params.addBodyParameter("call_time",select_time_tv.getText().toString().trim());
 
-                    x.http().post(params, new Callback.CommonCallback<String>() {
-                        @Override
-                        public void onSuccess(String result) {
-                            closeProgressDialog();
-                            CommonResultBean bean = Utils.jsonParase(result,CommonResultBean.class);
-                            if (bean != null && bean.getCode() == 200){
-                                showToast("举报成功");
-                                finish();
-                            }else {
-                                showToast("举报失败");
+                        x.http().post(params, new Callback.CommonCallback<String>() {
+                            @Override
+                            public void onSuccess(String result) {
+                                closeProgressDialog();
+                                CommonResultBean bean = Utils.jsonParase(result,CommonResultBean.class);
+                                if (bean != null && bean.getCode() == 200){
+                                    showToast("举报成功");
+                                    finish();
+                                }else {
+                                    showToast("举报失败");
+                                }
                             }
+
+                            @Override
+                            public void onError(Throwable ex, boolean isOnCallback) {
+                                closeProgressDialog();
+                            }
+
+                            @Override
+                            public void onCancelled(CancelledException cex) {
+
+                            }
+
+                            @Override
+                            public void onFinished() {
+
+                            }
+                        });
+                    }else {
+                        if (!isPhoneNumber(etPhone1.getText().toString().trim())){
+                            showToast("请填写骚扰电话号码");
+                            return;
                         }
-
-                        @Override
-                        public void onError(Throwable ex, boolean isOnCallback) {
-                            closeProgressDialog();
+                        if (!isPhoneNumber(etPhone2.getText().toString().trim())){
+                            showToast("请填写被骚扰电话号码");
+                            return;
                         }
-
-                        @Override
-                        public void onCancelled(CancelledException cex) {
-
+                        if (lay1check == -1){
+                            showToast("请选择骚扰形式");
+                            return;
                         }
-
-                        @Override
-                        public void onFinished() {
-
+                        if (lay1check != 1 && lay2check == -1){
+                            showToast("请选择骚扰类型");
+                            return;
                         }
-                    });
+                        if (lay1check != 1 && lay3check == -1){
+                            showToast("请选择通话时长");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(select_time_tv.getText().toString().trim())){
+                            showToast("请选择来电时间");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(harassContent.getText().toString().trim())){
+                            showToast("请选填写骚扰内容");
+                            return;
+                        }
+                    }
+                }else if (lay1check !=-1&&lay1check==1){
+                    if (isPhoneNumber(etPhone1.getText().toString().trim())&&isPhoneNumber(etPhone2.getText().toString().trim())&&lay1check !=-1&& !TextUtils.isEmpty(select_time_tv.getText().toString().trim())&&!TextUtils.isEmpty(harassContent.getText().toString().trim())){
+                        showProgressDialog("正在举报");
+                        RequestParams params = Utils.getDefaultParams("App/harassMobile");
+                        params.addBodyParameter("user_token", Utils.getUserToken(HarassPhoneActivity.this));
+                        params.addBodyParameter("accept_mobile",etPhone2.getText().toString().trim());
+                        params.addBodyParameter("report_mobile",etPhone1.getText().toString().trim());
+                        params.addBodyParameter("content",harassContent.getText().toString().trim());
+                        String lay1String="";
+                        switch (lay1check){
+                            case 1:
+                                lay1String= "响一声就挂";
+                                break;
+                            case 2:
+                                lay1String = "自动语音骚扰";
+                                break;
+                            case 3:
+                                lay1String = "人工骚扰";
+                                break;
+                        }
+                        params.addBodyParameter("harass_type",lay1String);
+                        String lay2String="";
+                        params.addBodyParameter("report_type",lay2String);
+                        String lay3String="";
+                        params.addBodyParameter("talk_time",lay3String);
+                        params.addBodyParameter("call_time",select_time_tv.getText().toString().trim());
+
+                        x.http().post(params, new Callback.CommonCallback<String>() {
+                            @Override
+                            public void onSuccess(String result) {
+                                closeProgressDialog();
+                                CommonResultBean bean = Utils.jsonParase(result,CommonResultBean.class);
+                                if (bean != null && bean.getCode() == 200){
+                                    showToast("举报成功");
+                                    finish();
+                                }else {
+                                    showToast("举报失败");
+                                }
+                            }
+
+                            @Override
+                            public void onError(Throwable ex, boolean isOnCallback) {
+                                closeProgressDialog();
+                            }
+
+                            @Override
+                            public void onCancelled(CancelledException cex) {
+
+                            }
+
+                            @Override
+                            public void onFinished() {
+
+                            }
+                        });
+                    }else {
+                        if (!isPhoneNumber(etPhone1.getText().toString().trim())){
+                            showToast("请填写骚扰电话号码");
+                            return;
+                        }
+                        if (!isPhoneNumber(etPhone2.getText().toString().trim())){
+                            showToast("请填写被骚扰电话号码");
+                            return;
+                        }
+                        if (lay1check == -1){
+                            showToast("请选择骚扰形式");
+                            return;
+                        }
+                        if (lay1check != 1 && lay2check == -1){
+                            showToast("请选择骚扰类型");
+                            return;
+                        }
+                        if (lay1check != 1 && lay3check == -1){
+                            showToast("请选择通话时长");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(select_time_tv.getText().toString().trim())){
+                            showToast("请选择来电时间");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(harassContent.getText().toString().trim())){
+                            showToast("请选填写骚扰内容");
+                            return;
+                        }
+                    }
                 }else {
-                    showToast("请填写完整信息");
+                    if (!isPhoneNumber(etPhone1.getText().toString().trim())){
+                        showToast("请填写骚扰电话号码");
+                        return;
+                    }
+                    if (!isPhoneNumber(etPhone2.getText().toString().trim())){
+                        showToast("请填写被骚扰电话号码");
+                        return;
+                    }
+                    if (lay1check == -1){
+                        showToast("请选择骚扰形式");
+                        return;
+                    }
+                    if (lay1check != 1 && lay2check == -1){
+                        showToast("请选择骚扰类型");
+                        return;
+                    }
+                    if (lay1check != 1 && lay3check == -1){
+                        showToast("请选择通话时长");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(select_time_tv.getText().toString().trim())){
+                        showToast("请选择来电时间");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(harassContent.getText().toString().trim())){
+                        showToast("请选填写骚扰内容");
+                        return;
+                    }
                 }
+
                 break;
         }
     }

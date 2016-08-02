@@ -64,7 +64,7 @@ public class BadMessageActivity extends BaseActivity {
                 String phone1 = message_phone_receiver.getText().toString().trim();
                 String phone2 = message_phone_send.getText().toString().trim();
                 String content = message_phone_content.getText().toString().trim();
-                if (isPhoneNumber(phone1)&&isPhoneNumber(phone2)&&!TextUtils.isEmpty(content)){
+                if (isRealPhoneNumber(phone1)&&isRealPhoneNumber(phone2)&&!TextUtils.isEmpty(content)){
                     showProgressDialog("正在举报");
                     RequestParams params = Utils.getDefaultParams("App/reportMessage");
                     params.addBodyParameter("user_token", Utils.getUserToken(BadMessageActivity.this));
@@ -101,7 +101,18 @@ public class BadMessageActivity extends BaseActivity {
                     });
 
                 }else {
-                    showToast("输入信息有误");
+                    if (!isRealPhoneNumber(phone2)){
+                        showToast("请填写正确的举报号码");
+                        return;
+                    }
+                    if (!isRealPhoneNumber(phone1)){
+                        showToast("请填写正确的接收方号码");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(content)){
+                        showToast("请填写不良短信内容");
+                        return;
+                    }
                 }
             }
         });

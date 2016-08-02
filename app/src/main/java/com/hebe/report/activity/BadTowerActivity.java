@@ -136,7 +136,26 @@ public class BadTowerActivity extends BaseActivity {
                         }
                     });
                 }else {
-                    showToast("请填写完整信息");
+                    if (lay1check == -1){
+                        showToast("请选择伪基站类型");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(address_tv.getText().toString().trim())){
+                        showToast("请选择所在区县");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(addressDetail.getText().toString().trim())){
+                        showToast("请填写详细地址");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(select_time_tv.getText().toString().trim())){
+                        showToast("请选择接收时间");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(towerContent.getText().toString().trim())){
+                        showToast("请填写伪基站描述");
+                        return;
+                    }
                 }
                 break;
         }

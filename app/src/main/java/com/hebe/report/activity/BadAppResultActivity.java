@@ -157,7 +157,7 @@ public class BadAppResultActivity extends BaseActivity {
                     showProgressDialog("正在提交");
                     submit();
                 }else {
-                    showToast("请填写相关信息");
+                    showToast("请选择是否解决");
                 }
                 break;
         }

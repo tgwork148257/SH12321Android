@@ -98,7 +98,18 @@ public class BadAppActivity extends BaseActivity {
                 }
             });
         }else {
-            showToast("请填写完整信息");
+            if (TextUtils.isEmpty(name)){
+                showToast("请填写APP名称");
+                return;
+            }
+            if (TextUtils.isEmpty(from)){
+                showToast("请填写APP来源");
+                return;
+            }
+            if (TextUtils.isEmpty(content)){
+                showToast("请填写APP描述");
+                return;
+            }
         }
 
 

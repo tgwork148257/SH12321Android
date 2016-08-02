@@ -135,12 +135,12 @@ public class NewsFragment extends BaseFragment {
             public void onSuccess(String result) {
                 NewsListBean bean = Utils.jsonParase(result,NewsListBean.class);
                 if (bean != null && bean.getCode() == 200){
-                    if (newsListBean == null || newsListBean.getData() == null){
+//                    if (newsListBean == null || newsListBean.getData() == null){
                         newsListBean = bean;
-                    }else {
-                        newsListBean.getData().getList().addAll(bean.getData().getList());
-
-                    }
+//                    }else {
+//                        newsListBean.getData().getList().addAll(bean.getData().getList());
+//
+//                    }
 //                    page++;
                     adapter.notifyDataSetChanged();
                 }else {

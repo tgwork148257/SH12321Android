@@ -154,7 +154,18 @@ public class BadNetActivity extends BaseActivity {
                         }
                     });
                 }else {
-                    showToast("请填写完整信息");
+                    if (TextUtils.isEmpty(etBadnet.getText().toString().trim())){
+                        showToast("请填写不良网站网址");
+                        return;
+                    }
+                    if (lay1check == -1){
+                        showToast("请选择不良类型");
+                        return;
+                    }
+                    if (TextUtils.isEmpty(badnetContent.getText().toString().trim())){
+                        showToast("请填写不良内容");
+                        return;
+                    }
                 }
                 break;
         }

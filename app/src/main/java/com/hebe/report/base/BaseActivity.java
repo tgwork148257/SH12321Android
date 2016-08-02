@@ -157,4 +157,12 @@ public abstract class BaseActivity extends FragmentActivity{
 //		return m.matches();
 		return  true;
 	}
+
+	public boolean isRealPhoneNumber(String phone){
+		if (TextUtils.isEmpty(phone))
+			return false;
+		Pattern p = Pattern.compile("^(1\\d{10})$");
+		Matcher m = p.matcher(phone);
+		return m.matches();
+	}
 }

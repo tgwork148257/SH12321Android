@@ -240,7 +240,47 @@ public class PhoneVerifyActivity extends BaseActivity {
                         uploadPic(14,phototmep14);
                         uploadPic(15,phototmep15);
                     }else {
-                        showToast("请填写完整信息");
+                        if (shiti11 == -1){
+                            showToast("请选择违规原因");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(shitidianming)){
+                            showToast("请填写实体店名");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(shitihao)){
+                            showToast("请填写购买的手机号码");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(shijian)){
+                            showToast("请选择购卡时间");
+                            return;
+                        }
+                        if (shiti12 == -1){
+                            showToast("请选择运营商");
+                            return;
+                        }
+                        if (shiti13 == -1){
+                            showToast("请选择区县");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(etShitidianDizhixiangxi.getText().toString().trim())){
+                            showToast("请填写详细地址");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(phototmep14)){
+                            showToast("请选择实体店照片");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(phototmep15)){
+                            showToast("请选择本人持卡照片");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(content)){
+                            showToast("请填写举报描述");
+                            return;
+                        }
+
                     }
                 }else {
                     String wangdianming = etWagndianName.getText().toString().trim();
@@ -254,7 +294,45 @@ public class PhoneVerifyActivity extends BaseActivity {
                         uploadPic(23,phototmep23);
                         uploadPic(24,phototmep24);
                     }else {
-                        showToast("请填写完整信息");
+                        if (wangdian21 == -1){
+                            showToast("请选择违规原因");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(wangdianming)){
+                            showToast("请填写网店名称");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(wangdianhao)){
+                            showToast("请填写购买的手机号码");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(shijian)){
+                            showToast("请选择购卡时间");
+                            return;
+                        }
+                        if (wangdian22 == -1){
+                            showToast("请选择运营商");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(wangzhi)){
+                            showToast("请填写网店网址");
+                            return;
+                        }if (TextUtils.isEmpty(xiaoshoudizhi)){
+                            showToast("请填写销售页面地址");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(phototmep23)){
+                            showToast("请选择订单截图");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(phototmep24)){
+                            showToast("请选择本人持卡照片");
+                            return;
+                        }
+                        if (TextUtils.isEmpty(content)){
+                            showToast("请填写举报描述");
+                            return;
+                        }
                     }
                 }
                 break;
@@ -395,28 +473,31 @@ public class PhoneVerifyActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
-            case 11:
-                shitiweigui_yuanyin_tv.setText(data.getStringExtra("address"));
-                shiti11 = data.getIntExtra("position",-1);
-                break;
-            case 12:
-                shiti_yunyingshang_tv.setText(data.getStringExtra("address"));
-                shiti12 = data.getIntExtra("position",-1);
-                break;
-            case 13:
-                shiti_quxian_tv.setText(data.getStringExtra("address"));
-                shiti13 = data.getIntExtra("position",-1);
-                break;
-            case 21:
-                wangdian_weigui_tv.setText(data.getStringExtra("address"));
-                wangdian21 = data.getIntExtra("position",-1);
-                break;
-            case 22:
-                wangdian_yunyingshang_tv.setText(data.getStringExtra("address"));
-                wangdian22 = data.getIntExtra("position",-1);
-                break;
+        if (data != null){
+            switch (requestCode){
+                case 11:
+                    shitiweigui_yuanyin_tv.setText(data.getStringExtra("address"));
+                    shiti11 = data.getIntExtra("position",-1);
+                    break;
+                case 12:
+                    shiti_yunyingshang_tv.setText(data.getStringExtra("address"));
+                    shiti12 = data.getIntExtra("position",-1);
+                    break;
+                case 13:
+                    shiti_quxian_tv.setText(data.getStringExtra("address"));
+                    shiti13 = data.getIntExtra("position",-1);
+                    break;
+                case 21:
+                    wangdian_weigui_tv.setText(data.getStringExtra("address"));
+                    wangdian21 = data.getIntExtra("position",-1);
+                    break;
+                case 22:
+                    wangdian_yunyingshang_tv.setText(data.getStringExtra("address"));
+                    wangdian22 = data.getIntExtra("position",-1);
+                    break;
+            }
         }
+
         if (resultCode == RESULT_OK){
             if (data != null) {
                 Uri mImageCaptureUri = data.getData();
