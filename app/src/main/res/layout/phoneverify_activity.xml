@@ -357,7 +357,7 @@
                     android:paddingLeft="16dp"
                     android:paddingTop="8dp"
                     android:textSize="15sp"
-                    android:hint=""/>
+                    android:hint="请填写举报描述"/>
             </LinearLayout>
 
 
@@ -647,7 +647,7 @@
                     android:paddingLeft="16dp"
                     android:paddingTop="8dp"
                     android:textSize="15sp"
-                    android:hint=""/>
+                    android:hint="请填写举报描述"/>
             </LinearLayout>
 
             <Button

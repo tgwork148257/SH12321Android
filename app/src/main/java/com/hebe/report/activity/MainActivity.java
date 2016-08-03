@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hebe.report.Constant.Constant;
 import com.hebe.report.R;
 import com.hebe.report.base.BaseActivity;
 import com.hebe.report.bean.UpdateBean;
@@ -77,7 +78,11 @@ public class MainActivity extends BaseActivity {
             reportFragment = new ReportFragment();
         }
         showFragment(reportFragment,R.id.layout_main,"report",true);
-        checkUpdate();
+        if (Constant.check == 0){
+            checkUpdate();
+            Constant.check = 1;
+        }
+
     }
 
 

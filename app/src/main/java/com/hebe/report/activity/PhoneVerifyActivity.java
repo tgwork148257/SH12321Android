@@ -550,7 +550,7 @@ public class PhoneVerifyActivity extends BaseActivity {
         OutputStream os = null;
         try {
             os = new FileOutputStream(destFile);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, os);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, os);
             os.flush();
             os.close();
             filePath = destFile.getAbsolutePath();
@@ -650,12 +650,39 @@ public class PhoneVerifyActivity extends BaseActivity {
                     }
 
                 }else {
-                    showToast("请重试");
+                    if (whitch == 14 || whitch == 15){
+                        if (uppic1 == false && whitch == 14){
+                            showToast("请重试");
+                        }else if (uppic1 == true&&uppic2==false){
+                            showToast("请重试");
+                        }
+                    }else if (whitch == 23|| whitch == 24){
+                        if (uppic1 == false && whitch == 23){
+                            showToast("请重试");
+                        }else if (uppic1 == true&&uppic2==false){
+                            showToast("请重试");
+                        }
+                    }
+                    closeProgressDialog();
                 }
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
+                if (whitch == 14 || whitch == 15){
+                    if (uppic1 == false && whitch == 14){
+                        showToast("请重试");
+                    }else if (uppic1 == true&&uppic2==false){
+                        showToast("请重试");
+                    }
+                }else if (whitch == 23|| whitch == 24){
+                    if (uppic1 == false && whitch == 23){
+                        showToast("请重试");
+                    }else if (uppic1 == true&&uppic2==false){
+                        showToast("请重试");
+                    }
+                }
+                closeProgressDialog();
             }
 
             @Override
@@ -664,6 +691,7 @@ public class PhoneVerifyActivity extends BaseActivity {
 
             @Override
             public void onFinished() {
+
             }
         });
     }
