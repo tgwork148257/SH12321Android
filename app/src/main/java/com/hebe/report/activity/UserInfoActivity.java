@@ -178,9 +178,6 @@ public class UserInfoActivity extends BaseActivity {
             public void onError(Throwable ex, boolean isOnCallback) {
                 closeProgressDialog();
                 showToast("修改失败");
-                type = 0;
-                navi_rigint.setText("编辑");
-                setInfoEnable();
             }
 
             @Override
@@ -190,9 +187,6 @@ public class UserInfoActivity extends BaseActivity {
 
             @Override
             public void onFinished() {
-                type = 0;
-                navi_rigint.setText("编辑");
-                setInfoEnable();
             }
         });
     }
