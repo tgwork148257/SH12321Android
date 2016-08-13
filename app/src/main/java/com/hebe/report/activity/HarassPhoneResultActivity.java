@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.hebe.report.R;
@@ -49,6 +50,10 @@ public class HarassPhoneResultActivity extends BaseActivity {
     ImageView check2;
     @ViewInject(R.id.summit)
     Button summit;
+    @ViewInject(R.id.starbar)
+    RatingBar starbar;
+    @ViewInject(R.id.grade_tv)
+    TextView grade_tv;
     @ViewInject(R.id.navi_title)
     private TextView navi_title;
     @ViewInject(R.id.navi_back)
@@ -75,6 +80,17 @@ public class HarassPhoneResultActivity extends BaseActivity {
         jwid = getIntent().getStringExtra("jwid");
         getinfo();
         showProgressDialog("正在加载");
+        starbar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if (rating == 0){
+                    starbar.setRating(0.5f);
+                    grade_tv.setText("1");
+                }else {
+                    grade_tv.setText((int)(rating*2)+"");
+                }
+            }
+        });
     }
 
     public void getinfo() {
@@ -122,6 +138,7 @@ public class HarassPhoneResultActivity extends BaseActivity {
         params.addBodyParameter("user_token", Utils.getUserToken(this));
         params.addBodyParameter("jw_id", jwid);
         params.addBodyParameter("feedback", check+"");
+        params.addBodyParameter("grade",grade_tv.getText().toString().trim());
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

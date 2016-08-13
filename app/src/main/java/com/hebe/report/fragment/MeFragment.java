@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.hebe.report.R;
 import com.hebe.report.activity.BadWifiActivity;
 import com.hebe.report.activity.MyReportListActivity;
+import com.hebe.report.activity.UserInfoActivity;
 import com.hebe.report.base.BaseFragment;
 import com.hebe.report.bean.CommonResultBean;
 import com.hebe.report.bean.UpdateBean;
@@ -41,6 +42,8 @@ public class MeFragment extends BaseFragment {
 
     @ViewInject(R.id.myreport_layout)
     private LinearLayout myreport_layout;
+    @ViewInject(R.id.userinfo_layout)
+    private LinearLayout userinfo_layout;
     @ViewInject(R.id.update_layout)
     private LinearLayout update_layout;
     @ViewInject(R.id.version_tv)
@@ -70,6 +73,12 @@ public class MeFragment extends BaseFragment {
             public void onClick(View v) {
 //                showdialog();
                 checkUpdate();
+            }
+        });
+        userinfo_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), UserInfoActivity.class));
             }
         });
         return view;
