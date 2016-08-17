@@ -53,7 +53,7 @@ public class ToolsSp {
 	public static void delete(Context context,String spName, String key) {
 		SharedPreferences sharedPreference = context.getSharedPreferences(spName, Context.MODE_PRIVATE);
 		if (sharedPreference != null) {
-			sharedPreference.edit().remove(key);
+			sharedPreference.edit().remove(key).commit();
 			sharedPreference = null;
 			context = null;
 		}
@@ -66,7 +66,7 @@ public class ToolsSp {
 	public static void clean(Context context,String spName) {
 		SharedPreferences sharedPreference = context.getSharedPreferences(spName, Context.MODE_PRIVATE);
 		if (sharedPreference != null) {
-			sharedPreference.edit().clear();
+			sharedPreference.edit().clear().commit();
 			sharedPreference = null;
 			context = null;
 		}

@@ -17,13 +17,16 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hebe.report.Constant.Constant;
 import com.hebe.report.R;
 import com.hebe.report.activity.BadWifiActivity;
+import com.hebe.report.activity.LoginActivity;
 import com.hebe.report.activity.MyReportListActivity;
 import com.hebe.report.activity.UserInfoActivity;
 import com.hebe.report.base.BaseFragment;
 import com.hebe.report.bean.CommonResultBean;
 import com.hebe.report.bean.UpdateBean;
+import com.hebe.report.utils.ToolsSp;
 import com.hebe.report.utils.Utils;
 
 import org.xutils.common.Callback;
@@ -48,6 +51,8 @@ public class MeFragment extends BaseFragment {
     private LinearLayout update_layout;
     @ViewInject(R.id.version_tv)
     private TextView version_tv;
+    @ViewInject(R.id.login_out)
+    private TextView login_out;
     private View view;
     private AlertDialog downdialog = null;
     @Nullable
@@ -79,6 +84,16 @@ public class MeFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), UserInfoActivity.class));
+            }
+        });
+        login_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToolsSp.delete(getActivity(), Constant.SP_NAME,"utoken");
+                ToolsSp.delete(getActivity(),Constant.SP_NAME,"phone");
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+                getActivity().finish();
+                showToast("退出成功");
             }
         });
         return view;
