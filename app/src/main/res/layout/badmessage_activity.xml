@@ -23,8 +23,8 @@
         android:background="@color/white"
         android:paddingLeft="16dp"
         android:maxLines="1"
-        android:maxLength="11"
-        android:inputType="number"
+        android:digits="01234567890-"
+        android:inputType="phone"
         android:textSize="15sp"
         android:hint="请填写发送不良短信的号码"/>
 
@@ -43,8 +43,8 @@
         android:background="@color/white"
         android:paddingLeft="16dp"
         android:maxLines="1"
-        android:maxLength="11"
-        android:inputType="number"
+        android:digits="01234567890-"
+        android:inputType="phone"
         android:textSize="15sp"
         android:hint="请填写接收不良短信的号码"/>
 

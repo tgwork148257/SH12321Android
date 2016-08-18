@@ -44,7 +44,8 @@
                 android:paddingLeft="16dp"
                 android:text="不良WIFI地址"
                 android:textColor="@color/text_black"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:id="@+id/textView" />
 
             <LinearLayout
                 android:id="@+id/badwifi_address"
