@@ -161,10 +161,12 @@ public class UserInfoActivity extends BaseActivity {
                     name_et.setText(bean.getData().getName());
                     age_et.setText(bean.getData().getAge());
                     sex_tv.setText(bean.getData().getSex());
-                    int index = bean.getData().getAddress().indexOf("区");
-                    if (index != -1){
-                        address_tv.setText(bean.getData().getAddress().substring(0,index+1));
-                        et_address_detail.setText(bean.getData().getAddress().substring(index+1,bean.getData().getAddress().length()));
+                    if (!TextUtils.isEmpty(bean.getData().getAddress())){
+                        int index = bean.getData().getAddress().indexOf("区");
+                        if (index != -1){
+                            address_tv.setText(bean.getData().getAddress().substring(0,index+1));
+                            et_address_detail.setText(bean.getData().getAddress().substring(index+1,bean.getData().getAddress().length()));
+                        }
                     }
                 }else {
                     showToast("获取失败");

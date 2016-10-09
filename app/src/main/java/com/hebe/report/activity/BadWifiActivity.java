@@ -103,6 +103,7 @@ public class BadWifiActivity extends BaseActivity {
 
                         @Override
                         public void onError(Throwable ex, boolean isOnCallback) {
+                            showToast("举报失败");
                             closeProgressDialog();
                         }
 
