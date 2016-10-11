@@ -156,7 +156,7 @@ public class MainActivity extends BaseActivity {
                     }
 
                 }else {
-                    showToast("检查失败");
+                    showToast("检查新版本失败");
                 }
             }
 

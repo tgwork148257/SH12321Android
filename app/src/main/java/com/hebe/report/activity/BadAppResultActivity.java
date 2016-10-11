@@ -71,6 +71,7 @@ public class BadAppResultActivity extends BaseActivity {
         });
         navi_title.setText("处理结果");
         jwid = getIntent().getStringExtra("jwid");
+        summit.setVisibility(View.GONE);
         getinfo();
         showProgressDialog("正在加载");
         starbar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -96,11 +97,39 @@ public class BadAppResultActivity extends BaseActivity {
                 closeProgressDialog();
                 AppResultBean bean = Utils.jsonParase(result, AppResultBean.class);
                 if (bean != null && bean.getCode() == 200) {
-                    textview1.setText(bean.getData().getType_name());
+                    textview1.setText(bean.getData().getOperator_rs());
                     textview2.setText(bean.getData().getName());
                     textview3.setText(bean.getData().getSource());
                     textview4.setText(bean.getData().getContent());
                     isget = 1;
+                    if (bean.getData().getFeedback() != null && bean.getData().getFeedback().equals("1")){
+                        starbar.setIsIndicator(true);
+                        check1.setEnabled(false);
+                        check2.setEnabled(false);
+                        if (bean.getData().getFeedback_result() != null && bean.getData().getFeedback_result().equals("已解决")){
+                            check = 1;
+                            check1.setImageResource(R.drawable.but_checked);
+                            check2.setImageResource(R.drawable.but_uncheck);
+                        }else if (bean.getData().getFeedback_result() != null && bean.getData().getFeedback_result().equals("未解决")){
+                            check = 2;
+                            check2.setImageResource(R.drawable.but_checked);
+                            check1.setImageResource(R.drawable.but_uncheck);
+                        }
+                        if (bean.getData().getFeedback_score() != null){
+                            try {
+                                float rating = Float.parseFloat(bean.getData().getFeedback_score());
+                                starbar.setRating(rating/2);
+                            } catch (NumberFormatException e) {
+                                e.printStackTrace();
+                                starbar.setRating(0f);
+                            }
+                        }
+                        summit.setEnabled(false);
+                        summit.setVisibility(View.GONE);
+                    }else {
+                        summit.setEnabled(true);
+                        summit.setVisibility(View.VISIBLE);
+                    }
                 } else {
                     showToast("请重试");
                 }
@@ -171,12 +200,16 @@ public class BadAppResultActivity extends BaseActivity {
                 check1.setImageResource(R.drawable.but_uncheck);
                 break;
             case R.id.summit:
-                if (isget==1&&check!=-1){
-                    showProgressDialog("正在提交");
-                    submit();
-                }else {
-                    showToast("请选择是否解决");
+                if (isget != 1){
+                    showToast("请重试");
+                    return;
                 }
+                if (check == -1){
+                    showToast("请选择是否解决");
+                    return;
+                }
+                showProgressDialog("正在提交");
+                submit();
                 break;
         }
     }

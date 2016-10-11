@@ -55,6 +55,16 @@ public class MyReport implements Serializable {
             private String jw_id;
             private String report_time;
             private String con_flag;
+            private String operator_rs;
+
+
+            public void setOperator_rs(String operator_rs) {
+                this.operator_rs = operator_rs;
+            }
+
+            public String getOperator_rs() {
+                return operator_rs;
+            }
 
             public String getType_name() {
                 return type_name;

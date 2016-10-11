@@ -184,6 +184,7 @@ public class MyReportListActivity extends BaseActivity {
                 holder.id = (TextView) convertView.findViewById(R.id.myreport_item_id);
                 holder.type = (TextView) convertView.findViewById(R.id.myreport_item_type);
                 holder.time = (TextView) convertView.findViewById(R.id.myreport_item_time);
+                holder.result = (TextView) convertView.findViewById(R.id.myreport_item_result);
                 convertView.setTag(holder);
             }else {
                 holder = (ViewHolder) convertView.getTag();
@@ -191,6 +192,7 @@ public class MyReportListActivity extends BaseActivity {
             holder.id.setText(myReport.getData().getList().get(position).getJw_id());
             holder.type.setText(myReport.getData().getList().get(position).getType_name());
             holder.time.setText(myReport.getData().getList().get(position).getReport_time());
+            holder.result.setText(myReport.getData().getList().get(position).getOperator_rs());
             return convertView;
         }
     }
@@ -240,6 +242,7 @@ public class MyReportListActivity extends BaseActivity {
         private TextView id;
         private TextView type;
         private TextView time;
+        private TextView result;
     }
 
     private View footerView;

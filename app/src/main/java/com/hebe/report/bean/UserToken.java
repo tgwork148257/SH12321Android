@@ -8,6 +8,15 @@ public class UserToken {
 
 
     private String user_token;
+    private String register;
+
+    public void setRegister(String register) {
+        this.register = register;
+    }
+
+    public String getRegister() {
+        return register;
+    }
 
     public String getUser_token() {
         return user_token;

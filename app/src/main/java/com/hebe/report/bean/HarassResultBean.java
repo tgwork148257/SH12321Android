@@ -38,6 +38,42 @@ public class HarassResultBean {
         private String add_time;
         private String mobile;
         private String jw_id;
+        private String feedback;
+        private String feedback_result;
+        private String feedback_score;
+        private String operator_rs;
+
+        public void setOperator_rs(String operator_rs) {
+            this.operator_rs = operator_rs;
+        }
+
+        public String getOperator_rs() {
+            return operator_rs;
+        }
+
+        public void setFeedback(String feedback) {
+            this.feedback = feedback;
+        }
+
+        public String getFeedback() {
+            return feedback;
+        }
+
+        public void setFeedback_result(String feedback_result) {
+            this.feedback_result = feedback_result;
+        }
+
+        public String getFeedback_result() {
+            return feedback_result;
+        }
+
+        public void setFeedback_score(String feedback_score) {
+            this.feedback_score = feedback_score;
+        }
+
+        public String getFeedback_score() {
+            return feedback_score;
+        }
 
         public String getType_name() {
             return type_name;

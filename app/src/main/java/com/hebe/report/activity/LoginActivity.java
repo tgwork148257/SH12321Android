@@ -178,7 +178,11 @@ public class LoginActivity extends BaseActivity {
                     if (utoken != null && !TextUtils.isEmpty(utoken.getUser_token())){
                         ToolsSp.saveOrUpdate(LoginActivity.this,Constant.SP_NAME,"utoken",utoken.getUser_token());
                         ToolsSp.saveOrUpdate(LoginActivity.this,Constant.SP_NAME,"phone",phone);
-                        showToast("登录成功");
+                        if (!TextUtils.isEmpty(utoken.getRegister()) && utoken.getRegister().equals("0")){
+                            showToast("注册成功");
+                        }else {
+                            showToast("登录成功");
+                        }
                         startActivity(new Intent(LoginActivity.this,MainActivity.class));
                         finish();
                     }else {
