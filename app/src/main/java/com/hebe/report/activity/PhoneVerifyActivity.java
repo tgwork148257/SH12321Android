@@ -1,9 +1,11 @@
 package com.hebe.report.activity;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +13,8 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -566,6 +570,15 @@ public class PhoneVerifyActivity extends BaseActivity {
             showToast("SD卡不存在");
             return;
         }
+        if (ActivityCompat.checkSelfPermission(PhoneVerifyActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(PhoneVerifyActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},(800+requestcode));
+        }else {
+            showSelectDialog(requestcode);
+        }
+
+    }
+
+    private void showSelectDialog(final int requestcode){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setItems(new String[]{"拍照", "从相册选择"}, new DialogInterface.OnClickListener() {
             @Override
@@ -578,6 +591,7 @@ public class PhoneVerifyActivity extends BaseActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+
                 }else {
                     try {
                         Intent intent = new Intent();
@@ -586,13 +600,23 @@ public class PhoneVerifyActivity extends BaseActivity {
                         intent.addCategory(Intent.CATEGORY_OPENABLE);
                         startActivityForResult(intent, requestcode);
                     } catch (ActivityNotFoundException e) {
-
+                        e.printStackTrace();
                     }
                 }
             }
         });
         builder.create().show();
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode >=800&&requestCode<900 && grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            showSelectDialog(requestCode-800);
+        }else {
+            showToast("请同意权限后继续");
+        }
+        }
 
     public void uploadPic(final int whitch, String path){
         File file = new File(path);

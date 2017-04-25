@@ -1,10 +1,15 @@
 package com.hebe.report.activity;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.View;
@@ -80,12 +85,31 @@ public class LoginActivity extends BaseActivity {
                     showToast("请输入正确的手机号码");
                     return;
                 }
-                get_code.setClickable(false);
-                getDeviceToken();
-                showProgressDialog("正在获取验证码");
+                if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(LoginActivity.this,new String[]{Manifest.permission.READ_PHONE_STATE},110);
+                }else {
+                    get_code.setClickable(false);
+                    getDeviceToken();
+                    showProgressDialog("正在获取验证码");
+                }
+
             }
         });
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 110){
+            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                get_code.setClickable(false);
+                getDeviceToken();
+                showProgressDialog("正在获取验证码");
+            }else {
+                showToast("请同意权限后获取验证码");
+            }
+        }
     }
 
     private void getDeviceToken(){

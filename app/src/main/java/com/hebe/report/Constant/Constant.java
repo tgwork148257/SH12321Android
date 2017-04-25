@@ -17,7 +17,8 @@ public class Constant {
     public static String SP_NAME = "info";
     public static int check = 0;
 
-    public static String base_url = "http://12321.shyytx.cn/index.php/";
+    public static String base_url = "http://12321.baodiango.com/";
+//    public static String base_url = "http://12321.shyytx.cn/index.php/";
 //    public static String base_url = "http://www.66liuliang.com/12321/index.php/";
 
     public ArrayList<String> getQuxian() {
