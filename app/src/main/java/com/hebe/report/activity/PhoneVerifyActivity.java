@@ -378,6 +378,7 @@ public class PhoneVerifyActivity extends BaseActivity {
         params.addBodyParameter("img",url1);
         params.addBodyParameter("card_img",url2);
         params.addBodyParameter("reason",new Constant().getWeiguishiti().get(shiti11));
+        params.addBodyParameter("desc",content);
 
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
@@ -431,6 +432,7 @@ public class PhoneVerifyActivity extends BaseActivity {
         params.addBodyParameter("img",url1);
         params.addBodyParameter("card_img",url2);
         params.addBodyParameter("reason",new Constant().getWeiguiwangdian().get(wangdian21));
+        params.addBodyParameter("desc",content);
 
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
